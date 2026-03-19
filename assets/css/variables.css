@@ -1,0 +1,80 @@
+/* Sachsen Spedition — Design Tokens */
+:root {
+  /* Core palette */
+  --charcoal: #111111;
+  --midnight: #1A1A2E;
+  --deep-navy: #16213E;
+  --gold: #E8B930;
+  --gold-dark: #D4A520;
+  --dark-slate: #2A2A3E;
+  --off-white: #F5F5F5;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-muted: #888888;
+  --text-dim: #555555;
+
+  /* Status */
+  --success: #4CAF50;
+  --warning: #E8B930;
+  --danger: #E85050;
+  --info: #2196F3;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-gold: rgba(232, 185, 48, 0.15);
+  --border-gold-strong: rgba(232, 185, 48, 0.3);
+
+  /* Backgrounds */
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card-hover: rgba(255, 255, 255, 0.04);
+  --bg-gold-subtle: rgba(232, 185, 48, 0.06);
+  --bg-gold-medium: rgba(232, 185, 48, 0.08);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #0D0D1A 0%, #1A1A2E 40%, #16213E 100%);
+  --gradient-gold: linear-gradient(135deg, #E8B930, #D4A520);
+  --gradient-dark: linear-gradient(135deg, #111111, #1A1A2E);
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 9px;
+  --font-size-sm: 11px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 48px;
+
+  /* Spacing */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 25px;
+  --space-xl: 40px;
+  --space-2xl: 60px;
+  --space-3xl: 80px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 65px;
+  --sidebar-width: 220px;
+  --sidebar-collapsed: 60px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Shadows */
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --shadow-gold: 0 0 20px rgba(232, 185, 48, 0.15);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+  /* Radius */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+}

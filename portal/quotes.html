@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote | Sachsen Spedition Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    /* Quote page specific styles */
+    .shipment-type-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .type-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .type-card:hover {
+      border-color: var(--border-gold);
+      background: var(--bg-card-hover);
+    }
+
+    .type-card.selected {
+      background: var(--bg-gold-subtle);
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(232, 185, 48, 0.1);
+    }
+
+    .type-card .type-icon {
+      font-size: 36px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .type-card .type-name {
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .type-card.selected .type-name {
+      color: var(--gold);
+    }
+
+    .quote-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    .quote-form-grid .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .container-btns {
+      display: flex;
+      gap: var(--space-sm);
+    }
+
+    .container-btn {
+      padding: 8px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      font-family: var(--font-primary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+    }
+
+    .container-btn:hover {
+      border-color: var(--border-gold);
+      color: var(--text-secondary);
+    }
+
+    .container-btn.selected {
+      background: var(--bg-gold-subtle);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .services-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: var(--font-size-sm);
+      font-family: var(--font-primary);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+    }
+
+    .service-chip:hover {
+      border-color: var(--border-gold);
+      color: var(--text-secondary);
+    }
+
+    .service-chip.selected {
+      background: var(--bg-gold-subtle);
+      border-color: var(--border-gold-strong);
+      color: var(--gold);
+    }
+
+    .service-chip .chip-check {
+      font-size: 10px;
+      color: var(--gold);
+    }
+
+    .file-upload-area {
+      border: 2px dashed var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      margin-bottom: var(--space-lg);
+    }
+
+    .file-upload-area:hover {
+      border-color: var(--border-gold-strong);
+      background: var(--bg-card-hover);
+    }
+
+    .file-upload-area .upload-icon {
+      font-size: 36px;
+      margin-bottom: var(--space-sm);
+      opacity: 0.4;
+    }
+
+    .file-upload-area .upload-text {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+    }
+
+    .file-upload-area .upload-text span {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-md);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-label {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .shipment-type-row { grid-template-columns: 1fr; }
+      .quote-form-grid { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="icon">&#9634;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link active">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+      <div class="breadcrumb">
+        <a href="quotes.html">QUOTES</a> &rsaquo; New Request
+      </div>
+
+      <div class="portal-header">
+        <div>
+          <h2>Request a Quote</h2>
+          <div class="portal-subtitle">Get a competitive rate for your next shipment</div>
+        </div>
+      </div>
+
+      <!-- Shipment Type Selector -->
+      <div class="section-label">Shipment Type</div>
+      <div class="shipment-type-row">
+        <div class="type-card selected">
+          <div class="type-icon">&#128674;</div>
+          <div class="type-name">Sea Freight</div>
+        </div>
+        <div class="type-card">
+          <div class="type-icon">&#9992;&#65039;</div>
+          <div class="type-name">Air Freight</div>
+        </div>
+        <div class="type-card">
+          <div class="type-icon">&#128667;</div>
+          <div class="type-name">Road Transport</div>
+        </div>
+      </div>
+
+      <!-- Quote Form -->
+      <div class="section-label">Shipment Details</div>
+      <div class="quote-form-grid">
+        <div class="form-group">
+          <label class="form-label">Origin</label>
+          <input type="text" class="form-input" placeholder="Shanghai, China" value="Shanghai, China">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Destination</label>
+          <input type="text" class="form-input" placeholder="Dar es Salaam, Tanzania" value="Dar es Salaam, Tanzania">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cargo Description</label>
+          <input type="text" class="form-input" placeholder="Electronics &mdash; consumer goods" value="Electronics &mdash; consumer goods">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Weight (KG)</label>
+          <input type="text" class="form-input" placeholder="22,500" value="22,500">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Container Type</label>
+          <div class="container-btns">
+            <button class="container-btn selected">40ft FCL</button>
+            <button class="container-btn">20ft FCL</button>
+            <button class="container-btn">LCL</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Quantity</label>
+          <input type="number" class="form-input" placeholder="1" value="1">
+        </div>
+      </div>
+
+      <!-- Services Required -->
+      <div class="section-label">Services Required</div>
+      <div class="services-chips">
+        <button class="service-chip selected">
+          <span class="chip-check">&#10003;</span> Customs Clearing
+        </button>
+        <button class="service-chip selected">
+          <span class="chip-check">&#10003;</span> Port Handling
+        </button>
+        <button class="service-chip">
+          Inland Transport
+        </button>
+        <button class="service-chip">
+          Insurance
+        </button>
+        <button class="service-chip">
+          Warehousing
+        </button>
+      </div>
+
+      <!-- Special Requirements -->
+      <div class="section-label">Special Requirements</div>
+      <div class="form-group">
+        <textarea class="form-textarea" placeholder="Any special handling requirements..."></textarea>
+      </div>
+
+      <!-- File Upload -->
+      <div class="section-label">Supporting Documents</div>
+      <div class="file-upload-area">
+        <div class="upload-icon">&#128206;</div>
+        <div class="upload-text">Drop files here or <span>click to upload</span></div>
+        <div style="color: var(--text-dim); font-size: 10px; margin-top: 8px; letter-spacing: 1px;">PDF, DOC, XLS, JPG &mdash; Max 25MB per file</div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button class="btn btn-outline">SAVE DRAFT</button>
+        <button class="btn btn-gold">SUBMIT REQUEST &rarr;</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Guidelines | Sachsen Spedition</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    /* Brand Guidelines Page Styles */
+    body {
+      background: var(--charcoal);
+    }
+
+    /* ===== HERO ===== */
+    .brand-hero {
+      background: var(--gradient-hero);
+      padding: 100px 40px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232, 185, 48, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .brand-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-gold-strong), transparent);
+    }
+
+    .brand-hero .label {
+      margin-bottom: 20px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-hero h1 {
+      font-size: 42px;
+      font-weight: 200;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-hero .subtitle {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      line-height: 1.8;
+    }
+
+    /* ===== SECTIONS ===== */
+    .brand-section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .brand-section + .brand-section {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+    }
+
+    .section-header .section-number {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 200;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .section-header .desc {
+      color: var(--text-dim);
+      font-size: var(--font-size-base);
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .gold-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 15px 0;
+    }
+
+    /* ===== LOGO SECTION ===== */
+    .logo-variations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .logo-var-card {
+      border-radius: var(--radius-lg);
+      padding: 50px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      position: relative;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .logo-var-card .var-label {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .logo-var-card .diamond-mark {
+      width: 70px;
+      height: 70px;
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      flex-shrink: 0;
+    }
+
+    .logo-var-card .diamond-mark span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .logo-var-card .logo-wordmark {
+      letter-spacing: 6px;
+      font-weight: 300;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .logo-var-card .logo-sub {
+      font-size: 8px;
+      letter-spacing: 4px;
+      font-weight: 600;
+    }
+
+    /* Dark background variation */
+    .logo-var-dark {
+      background: var(--midnight);
+    }
+
+    .logo-var-dark .var-label { color: var(--text-dim); }
+    .logo-var-dark .diamond-mark {
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+    }
+    .logo-var-dark .diamond-mark span { color: var(--charcoal); }
+    .logo-var-dark .logo-wordmark { color: var(--text-primary); }
+    .logo-var-dark .logo-sub { color: var(--gold); }
+
+    /* Light background variation */
+    .logo-var-light {
+      background: var(--off-white);
+    }
+
+    .logo-var-light .var-label { color: var(--text-dim); }
+    .logo-var-light .diamond-mark {
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+    }
+    .logo-var-light .diamond-mark span { color: var(--charcoal); }
+    .logo-var-light .logo-wordmark { color: var(--charcoal); }
+    .logo-var-light .logo-sub { color: var(--gold-dark); }
+
+    /* Monochrome variation */
+    .logo-var-mono {
+      background: #FFFFFF;
+    }
+
+    .logo-var-mono .var-label { color: #999; }
+    .logo-var-mono .diamond-mark {
+      background: var(--charcoal);
+    }
+    .logo-var-mono .diamond-mark span { color: #FFFFFF; }
+    .logo-var-mono .logo-wordmark { color: var(--charcoal); }
+    .logo-var-mono .logo-sub { color: #666; }
+
+    /* ===== COLOR PALETTE ===== */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .color-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition-base);
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-4px);
+    }
+
+    .swatch-fill {
+      height: 100px;
+      position: relative;
+    }
+
+    .swatch-fill.primary {
+      height: 130px;
+    }
+
+    .swatch-info {
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      letter-spacing: 1px;
+    }
+
+    .swatch-role {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .color-grid-primary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      align-items: baseline;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .type-meta {
+      text-align: right;
+    }
+
+    .type-meta .type-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .type-meta .type-spec {
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .type-sample-display {
+      font-family: var(--font-primary);
+      font-size: 56px;
+      font-weight: 200;
+      letter-spacing: 6px;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .type-sample-h1 {
+      font-family: var(--font-primary);
+      font-size: 48px;
+      font-weight: 200;
+      letter-spacing: 4px;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .type-sample-h2 {
+      font-family: var(--font-primary);
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .type-sample-h3 {
+      font-family: var(--font-primary);
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .type-sample-h4 {
+      font-family: var(--font-primary);
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .type-sample-body {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .type-sample-label {
+      font-family: var(--font-primary);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ===== LOGO USAGE ===== */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .usage-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .usage-card.do-card {
+      border-color: rgba(76, 175, 80, 0.2);
+    }
+
+    .usage-card.dont-card {
+      border-color: rgba(232, 80, 80, 0.2);
+    }
+
+    .usage-preview {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--midnight);
+      position: relative;
+    }
+
+    .usage-preview .mini-diamond {
+      width: 50px;
+      height: 50px;
+      transform: rotate(45deg);
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .usage-preview .mini-diamond span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+    }
+
+    /* Correct spacing */
+    .usage-spacing .mini-diamond {
+      position: relative;
+    }
+
+    .usage-spacing .space-indicator {
+      position: absolute;
+      border: 1px dashed rgba(232, 185, 48, 0.4);
+    }
+
+    .usage-spacing .space-top {
+      top: -20px; left: 0; right: 0; height: 20px;
+    }
+
+    .usage-spacing .space-right {
+      top: 0; right: -20px; bottom: 0; width: 20px;
+    }
+
+    .usage-spacing .space-bottom {
+      bottom: -20px; left: 0; right: 0; height: 20px;
+    }
+
+    .usage-spacing .space-left {
+      top: 0; left: -20px; bottom: 0; width: 20px;
+    }
+
+    /* Minimum size */
+    .usage-minsize {
+      gap: 40px;
+    }
+
+    .usage-minsize .mini-diamond.small {
+      width: 24px;
+      height: 24px;
+    }
+
+    .usage-minsize .mini-diamond.small span {
+      font-size: 8px;
+    }
+
+    .usage-minsize .size-label {
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Wrong color */
+    .usage-wrong-color .mini-diamond {
+      background: #FF5555 !important;
+    }
+
+    .usage-wrong-color .x-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      color: rgba(232, 80, 80, 0.3);
+      font-weight: 200;
+      line-height: 1;
+    }
+
+    /* Wrong distortion */
+    .usage-distorted .mini-diamond {
+      transform: rotate(45deg) scaleX(1.5);
+    }
+
+    .usage-distorted .x-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      color: rgba(232, 80, 80, 0.3);
+      font-weight: 200;
+      line-height: 1;
+    }
+
+    .usage-label {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .usage-label .badge-do {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--success);
+      text-transform: uppercase;
+    }
+
+    .usage-label .badge-dont {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--danger);
+      text-transform: uppercase;
+    }
+
+    .usage-label .usage-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* ===== BRAND VOICE ===== */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .voice-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 35px 30px;
+      transition: all var(--transition-base);
+    }
+
+    .voice-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-3px);
+    }
+
+    .voice-card .voice-icon {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .voice-card h4 {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .voice-card p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .voice-examples {
+      list-style: none;
+      padding: 0;
+    }
+
+    .voice-examples li {
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 5px 0;
+      padding-left: 15px;
+      position: relative;
+    }
+
+    .voice-examples li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ===== STATIONERY ===== */
+    .stationery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .stationery-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .stationery-card-full {
+      grid-column: span 2;
+    }
+
+    .stationery-label {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* Business Card Mockup */
+    .biz-card-mockup {
+      padding: 40px;
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .biz-card {
+      width: 340px;
+      height: 200px;
+      border-radius: 8px;
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .biz-card-front {
+      background: linear-gradient(135deg, #111111, #1A1A2E);
+      border: 1px solid rgba(232, 185, 48, 0.15);
+    }
+
+    .biz-card-front .card-diamond {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .biz-card-front .card-diamond span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+    }
+
+    .biz-card-front .card-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: #FFFFFF;
+      letter-spacing: 2px;
+      margin-bottom: 3px;
+    }
+
+    .biz-card-front .card-title {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .biz-card-front .card-contact {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+    }
+
+    .biz-card-front .card-contact p {
+      font-size: 9px;
+      color: #888;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .biz-card-front .card-accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: rgba(232, 185, 48, 0.03);
+      transform: rotate(45deg) translate(20px, -40px);
+    }
+
+    .biz-card-back {
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .biz-card-back .card-diamond-dark {
+      width: 50px;
+      height: 50px;
+      background: var(--charcoal);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .biz-card-back .card-diamond-dark span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .biz-card-back .back-name {
+      font-size: 12px;
+      color: var(--charcoal);
+      letter-spacing: 5px;
+      font-weight: 300;
+    }
+
+    .biz-card-back .back-sub {
+      font-size: 8px;
+      color: rgba(17, 17, 17, 0.6);
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Letterhead Mockup */
+    .letterhead-mockup {
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .letterhead {
+      width: 100%;
+      max-width: 520px;
+      background: #FFFFFF;
+      border-radius: 4px;
+      padding: 35px;
+      min-height: 680px;
+      position: relative;
+      color: #333;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .letterhead-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #E8B930;
+      margin-bottom: 30px;
+    }
+
+    .letterhead-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .letterhead-logo .lh-diamond {
+      width: 35px;
+      height: 35px;
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .letterhead-logo .lh-diamond span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 12px;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    .letterhead-logo .lh-name {
+      font-size: 14px;
+      color: #111;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .letterhead-logo .lh-sub {
+      font-size: 7px;
+      color: #D4A520;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .letterhead-address {
+      text-align: right;
+      font-size: 8px;
+      color: #999;
+      line-height: 1.8;
+    }
+
+    .letterhead-body {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .letterhead-body .lh-date {
+      margin-bottom: 20px;
+      color: #999;
+      font-size: 10px;
+    }
+
+    .letterhead-body .lh-salutation {
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 400;
+    }
+
+    .letterhead-body .lh-paragraph {
+      margin-bottom: 12px;
+      font-size: 10px;
+    }
+
+    .letterhead-body .lh-signature {
+      margin-top: 30px;
+    }
+
+    .letterhead-body .lh-signature .sig-name {
+      color: #111;
+      font-weight: 500;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .letterhead-body .lh-signature .sig-title {
+      color: #999;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .letterhead-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 35px;
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .letterhead-footer span {
+      font-size: 7px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .letterhead-footer .lf-gold {
+      color: #E8B930;
+    }
+
+    /* Email Signature Mockup */
+    .email-sig-mockup {
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .email-sig {
+      background: #FFFFFF;
+      border-radius: 6px;
+      padding: 25px 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .email-sig .sig-divider {
+      width: 100%;
+      height: 1px;
+      background: #EEE;
+      margin: 15px 0;
+    }
+
+    .email-sig .sig-preview-text {
+      font-size: 10px;
+      color: #BBB;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .sig-content {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .sig-content .sig-diamond {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #E8B930, #D4A520);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .sig-content .sig-diamond span {
+      transform: rotate(-45deg);
+      font-weight: 800;
+      font-size: 15px;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    .sig-details .sig-name {
+      font-size: 14px;
+      color: #111;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .sig-details .sig-role {
+      font-size: 9px;
+      color: #D4A520;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sig-details .sig-company {
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 2px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .sig-details .sig-info {
+      font-size: 10px;
+      color: #999;
+      line-height: 1.7;
+    }
+
+    .sig-details .sig-info a {
+      color: #D4A520;
+      text-decoration: none;
+    }
+
+    .sig-gold-bar {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #E8B930, #D4A520, transparent);
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .color-grid { grid-template-columns: repeat(3, 1fr); }
+      .logo-variations { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .brand-hero { padding: 80px 20px 50px; }
+      .brand-hero h1 { font-size: 28px; letter-spacing: 4px; }
+      .brand-section { padding: 50px 20px; }
+      .logo-variations { grid-template-columns: 1fr; }
+      .color-grid { grid-template-columns: repeat(2, 1fr); }
+      .color-grid-primary { grid-template-columns: 1fr; }
+      .type-row { grid-template-columns: 1fr; gap: 10px; }
+      .type-meta { text-align: left; }
+      .type-sample-display { font-size: 36px; }
+      .type-sample-h1 { font-size: 30px; }
+      .usage-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .stationery-grid { grid-template-columns: 1fr; }
+      .stationery-card-full { grid-column: span 1; }
+      .biz-card-mockup { flex-direction: column; align-items: center; }
+      .biz-card { width: 100%; max-width: 340px; }
+      .letterhead { min-height: 550px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to Hub -->
+  <a href="../index.html" class="back-to-hub">
+    <span>&larr;</span> Hub
+  </a>
+
+  <!-- Hero -->
+  <section class="brand-hero">
+    <span class="label">Sachsen Spedition (T) Limited</span>
+    <h1>BRAND IDENTITY<br>GUIDELINES</h1>
+    <div class="gold-line" style="margin: 15px auto;"></div>
+    <p class="subtitle">
+      A complete visual identity system defining how the Sachsen Spedition brand is expressed across every touchpoint.
+    </p>
+  </section>
+
+  <!-- 01. Logo -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">01 &mdash; THE MARK</span>
+      <h2>Logo System</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        The Sachsen diamond mark represents precision, stability, and forward movement.
+        The rotated square symbolizes a compass &mdash; always guiding cargo to its destination.
+      </p>
+    </div>
+
+    <div class="logo-variations">
+      <!-- Dark Background -->
+      <div class="logo-var-card logo-var-dark animate-in">
+        <span class="var-label">Primary &mdash; Dark</span>
+        <div class="diamond-mark">
+          <span>SS</span>
+        </div>
+        <div class="logo-wordmark">SACHSEN</div>
+        <div class="logo-sub">SPEDITION (T) LIMITED</div>
+      </div>
+
+      <!-- Light Background -->
+      <div class="logo-var-card logo-var-light animate-in">
+        <span class="var-label">Primary &mdash; Light</span>
+        <div class="diamond-mark">
+          <span>SS</span>
+        </div>
+        <div class="logo-wordmark">SACHSEN</div>
+        <div class="logo-sub">SPEDITION (T) LIMITED</div>
+      </div>
+
+      <!-- Monochrome -->
+      <div class="logo-var-card logo-var-mono animate-in">
+        <span class="var-label">Monochrome</span>
+        <div class="diamond-mark">
+          <span>SS</span>
+        </div>
+        <div class="logo-wordmark">SACHSEN</div>
+        <div class="logo-sub">SPEDITION (T) LIMITED</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. Color Palette -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">02 &mdash; PALETTE</span>
+      <h2>Color System</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        A restrained palette built on dark foundations with gold accents that convey authority, trust, and premium quality.
+      </p>
+    </div>
+
+    <!-- Primary Colors -->
+    <div class="color-grid-primary">
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill primary" style="background: linear-gradient(135deg, #E8B930, #D4A520);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold</div>
+          <div class="swatch-hex">#E8B930</div>
+          <div class="swatch-role">Primary accent &middot; CTAs &middot; Highlights</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill primary" style="background: #D4A520;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold Dark</div>
+          <div class="swatch-hex">#D4A520</div>
+          <div class="swatch-role">Hover states &middot; Secondary accent</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Colors -->
+    <div class="color-grid">
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #111111;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Charcoal</div>
+          <div class="swatch-hex">#111111</div>
+          <div class="swatch-role">Page backgrounds</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #1A1A2E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Midnight</div>
+          <div class="swatch-hex">#1A1A2E</div>
+          <div class="swatch-role">Section backgrounds</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #16213E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Navy</div>
+          <div class="swatch-hex">#16213E</div>
+          <div class="swatch-role">Gradient endpoints</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #2A2A3E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Slate</div>
+          <div class="swatch-hex">#2A2A3E</div>
+          <div class="swatch-role">UI elements &middot; Borders</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #F5F5F5;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Off White</div>
+          <div class="swatch-hex">#F5F5F5</div>
+          <div class="swatch-role">Text on dark &middot; Reversed layouts</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.06);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-role">Primary text &middot; Headings</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #CCCCCC;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Silver</div>
+          <div class="swatch-hex">#CCCCCC</div>
+          <div class="swatch-role">Body text</div>
+        </div>
+      </div>
+      <div class="color-swatch animate-in">
+        <div class="swatch-fill" style="background: #555555;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dim</div>
+          <div class="swatch-hex">#555555</div>
+          <div class="swatch-role">Muted text &middot; Captions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. Typography -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">03 &mdash; TYPOGRAPHY</span>
+      <h2>Type Hierarchy</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        Inter provides exceptional legibility at every size. Ultra-light weights for headlines create an executive feel, while medium weights ground body copy.
+      </p>
+    </div>
+
+    <div class="type-specimens">
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Display</div>
+          <div class="type-spec">Inter 200<br>56px / 6px tracking</div>
+        </div>
+        <div class="type-sample-display">Sachsen</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Heading 1</div>
+          <div class="type-spec">Inter 200<br>48px / 4px tracking</div>
+        </div>
+        <div class="type-sample-h1">Global Reach</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Heading 2</div>
+          <div class="type-spec">Inter 300<br>36px / 3px tracking</div>
+        </div>
+        <div class="type-sample-h2">Clearing &amp; Forwarding</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Heading 3</div>
+          <div class="type-spec">Inter 300<br>28px / 2px tracking</div>
+        </div>
+        <div class="type-sample-h3">Sea Freight Services</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Heading 4</div>
+          <div class="type-spec">Inter 400<br>20px / 1px tracking</div>
+        </div>
+        <div class="type-sample-h4">Port of Dar es Salaam</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Body</div>
+          <div class="type-spec">Inter 300<br>16px / 1.7 line-height</div>
+        </div>
+        <div class="type-sample-body">Sachsen Spedition (T) Limited has been delivering reliable clearing and forwarding solutions from the heart of Dar es Salaam for over a decade, connecting East Africa to the world.</div>
+      </div>
+
+      <div class="type-row animate-in">
+        <div class="type-meta">
+          <div class="type-name">Label</div>
+          <div class="type-spec">Inter 600<br>9px / 3px tracking / uppercase</div>
+        </div>
+        <div class="type-sample-label">Customs Brokerage &amp; Documentation</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. Logo Usage -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">04 &mdash; USAGE RULES</span>
+      <h2>Logo Do's &amp; Don'ts</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        Maintaining consistent logo usage protects brand equity. Follow these rules across all applications.
+      </p>
+    </div>
+
+    <div class="usage-grid">
+      <!-- DO: Clear Space -->
+      <div class="usage-card do-card animate-in">
+        <div class="usage-preview usage-spacing">
+          <div class="mini-diamond" style="position: relative;">
+            <span>SS</span>
+            <div class="space-indicator space-top"></div>
+            <div class="space-indicator space-right"></div>
+            <div class="space-indicator space-bottom"></div>
+            <div class="space-indicator space-left"></div>
+          </div>
+        </div>
+        <div class="usage-label">
+          <span class="badge-do">DO</span>
+          <span class="usage-desc">Maintain clear space equal to the diamond width on all sides</span>
+        </div>
+      </div>
+
+      <!-- DO: Minimum Size -->
+      <div class="usage-card do-card animate-in">
+        <div class="usage-preview usage-minsize" style="display: flex; align-items: center; justify-content: center; gap: 50px;">
+          <div style="text-align: center;">
+            <div class="mini-diamond" style="margin: 0 auto;">
+              <span>SS</span>
+            </div>
+            <div class="size-label" style="font-size: 9px; color: #555; letter-spacing: 2px; margin-top: 12px;">50px</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="mini-diamond small" style="width: 24px; height: 24px; margin: 0 auto;">
+              <span style="font-size: 8px;">SS</span>
+            </div>
+            <div class="size-label" style="font-size: 9px; color: #555; letter-spacing: 2px; margin-top: 12px;">24px min</div>
+          </div>
+        </div>
+        <div class="usage-label">
+          <span class="badge-do">DO</span>
+          <span class="usage-desc">Respect the minimum size of 24px to preserve legibility</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Wrong Colors -->
+      <div class="usage-card dont-card animate-in">
+        <div class="usage-preview usage-wrong-color" style="position: relative;">
+          <div class="mini-diamond">
+            <span>SS</span>
+          </div>
+          <div class="x-overlay">&times;</div>
+        </div>
+        <div class="usage-label">
+          <span class="badge-dont">DON'T</span>
+          <span class="usage-desc">Never apply unapproved colors to the mark</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Distortion -->
+      <div class="usage-card dont-card animate-in">
+        <div class="usage-preview usage-distorted" style="position: relative;">
+          <div class="mini-diamond">
+            <span>SS</span>
+          </div>
+          <div class="x-overlay">&times;</div>
+        </div>
+        <div class="usage-label">
+          <span class="badge-dont">DON'T</span>
+          <span class="usage-desc">Never stretch, skew, or distort the diamond proportions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. Brand Voice -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">05 &mdash; VOICE</span>
+      <h2>Brand Voice</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        Every word we publish should reinforce trust, demonstrate expertise, and project quiet confidence.
+      </p>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-card animate-in">
+        <div class="voice-icon">&#9878;</div>
+        <h4>Professional</h4>
+        <p>Measured, precise language that reflects decades of logistics expertise. We speak with the authority of a company that moves the world.</p>
+        <ul class="voice-examples">
+          <li>Use industry-correct terminology</li>
+          <li>Cite specific capabilities and routes</li>
+          <li>Prefer factual statements over superlatives</li>
+        </ul>
+      </div>
+
+      <div class="voice-card animate-in">
+        <div class="voice-icon">&#9733;</div>
+        <h4>Authoritative</h4>
+        <p>We are subject-matter experts. Our communications reflect deep knowledge of East African trade corridors, customs frameworks, and port operations.</p>
+        <ul class="voice-examples">
+          <li>Lead with insight, not generics</li>
+          <li>Reference regulatory knowledge</li>
+          <li>Position as the reliable advisor</li>
+        </ul>
+      </div>
+
+      <div class="voice-card animate-in">
+        <div class="voice-icon">&#9670;</div>
+        <h4>Trustworthy</h4>
+        <p>Transparency and reliability are paramount. Our tone should make clients feel secure that their cargo &mdash; and their business &mdash; is in capable hands.</p>
+        <ul class="voice-examples">
+          <li>Be direct and clear, never vague</li>
+          <li>Emphasize track record and reliability</li>
+          <li>Show, don't just tell</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. Stationery -->
+  <section class="brand-section">
+    <div class="section-header">
+      <span class="section-number">06 &mdash; APPLICATIONS</span>
+      <h2>Stationery System</h2>
+      <div class="gold-line"></div>
+      <p class="desc">
+        Branded touchpoints that reinforce Sachsen Spedition's premium positioning at every client interaction.
+      </p>
+    </div>
+
+    <div class="stationery-grid">
+      <!-- Business Card -->
+      <div class="stationery-card stationery-card-full animate-in">
+        <div class="stationery-label">Business Card &mdash; Front &amp; Back</div>
+        <div class="biz-card-mockup">
+          <!-- Front -->
+          <div class="biz-card biz-card-front">
+            <div class="card-accent"></div>
+            <div class="card-diamond"><span>SS</span></div>
+            <div class="card-name">John Mwangi</div>
+            <div class="card-title">Operations Manager</div>
+            <div class="card-contact">
+              <p>+255 22 213 8051 &nbsp;&middot;&nbsp; +255 713 786 797</p>
+              <p>info@sachsen.co.tz &nbsp;&middot;&nbsp; www.sachsen.co.tz</p>
+              <p>Samora/Zanaki St, Umati Building, 2nd Floor, Dar es Salaam</p>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="biz-card biz-card-back">
+            <div class="card-diamond-dark"><span>SS</span></div>
+            <div class="back-name">SACHSEN SPEDITION</div>
+            <div class="back-sub">CLEARING &amp; FORWARDING</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letterhead -->
+      <div class="stationery-card stationery-card-full animate-in">
+        <div class="stationery-label">Letterhead</div>
+        <div class="letterhead-mockup">
+          <div class="letterhead">
+            <div class="letterhead-header">
+              <div class="letterhead-logo">
+                <div class="lh-diamond"><span>SS</span></div>
+                <div>
+                  <div class="lh-name">SACHSEN</div>
+                  <div class="lh-sub">SPEDITION (T) LIMITED</div>
+                </div>
+              </div>
+              <div class="letterhead-address">
+                Samora/Zanaki Street, Umati Building<br>
+                2nd Floor, Room No. 20<br>
+                P.O. Box 75649<br>
+                Dar es Salaam, Tanzania<br>
+                <span style="color: #D4A520;">www.sachsen.co.tz</span>
+              </div>
+            </div>
+
+            <div class="letterhead-body">
+              <div class="lh-date">19 March 2026</div>
+              <div class="lh-salutation">Dear Valued Client,</div>
+              <div class="lh-paragraph">
+                Thank you for choosing Sachsen Spedition (T) Limited as your clearing and forwarding partner. We are pleased to confirm receipt of your shipment documentation and wish to advise that customs processing has been initiated.
+              </div>
+              <div class="lh-paragraph">
+                Our team at the Port of Dar es Salaam is working diligently to ensure your cargo clears all regulatory checkpoints efficiently. You will receive real-time status updates through our client portal.
+              </div>
+              <div class="lh-paragraph">
+                Should you require any additional information or have questions regarding your shipment, please do not hesitate to contact our operations desk at +255 22 213 8051 or via email at info@sachsen.co.tz.
+              </div>
+              <div class="lh-signature">
+                <div class="sig-name">Operations Department</div>
+                <div class="sig-title">Sachsen Spedition (T) Limited</div>
+              </div>
+            </div>
+
+            <div class="letterhead-footer">
+              <span>P.O. Box 75649, Dar es Salaam</span>
+              <span class="lf-gold">+255 22 213 8051</span>
+              <span>info@sachsen.co.tz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Signature -->
+      <div class="stationery-card stationery-card-full animate-in">
+        <div class="stationery-label">Email Signature</div>
+        <div class="email-sig-mockup">
+          <div class="email-sig">
+            <div class="sig-preview-text">Best regards,</div>
+            <div class="sig-divider"></div>
+            <div class="sig-content">
+              <div class="sig-diamond"><span>SS</span></div>
+              <div class="sig-details">
+                <div class="sig-name">John Mwangi</div>
+                <div class="sig-role">Operations Manager</div>
+                <div class="sig-company">SACHSEN SPEDITION (T) LIMITED</div>
+                <div class="sig-info">
+                  <strong style="color: #333;">T:</strong> +255 22 213 8051 &nbsp;&middot;&nbsp; <strong style="color: #333;">M:</strong> +255 713 786 797<br>
+                  <strong style="color: #333;">E:</strong> <a href="mailto:info@sachsen.co.tz">info@sachsen.co.tz</a> &nbsp;&middot;&nbsp; <strong style="color: #333;">W:</strong> <a href="https://www.sachsen.co.tz">www.sachsen.co.tz</a><br>
+                  Samora/Zanaki St, Umati Building, 2nd Floor, Room 20, Dar es Salaam
+                </div>
+                <div class="sig-gold-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px; border-top: 1px solid var(--border-subtle); background: rgba(10, 10, 20, 0.4);">
+    <p style="font-size: 9px; color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px;">
+      Brand Guidelines &mdash; <span style="color: var(--gold);">Sachsen Spedition (T) Limited</span>
+    </p>
+    <p style="font-size: 9px; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 10px;">
+      Prepared by Tradefiti &middot; March 2026
+    </p>
+    <p style="font-size: 8px; color: var(--text-dim); opacity: 0.5; letter-spacing: 2px;">
+      Confidential &mdash; For Internal Use Only
+    </p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SS-2026-0847 | Sachsen Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    /* Shipment Header */
+    .shipment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .shipment-header h2 {
+      font-size: var(--font-size-xl);
+      font-weight: 200;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .shipment-meta {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .shipment-header-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Progress Section */
+    .progress-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .progress-section h4 {
+      font-size: var(--font-size-sm);
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Progress bar beneath timeline */
+    .progress-bar-container {
+      margin-top: var(--space-lg);
+      padding: 0 20px;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: var(--dark-slate);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--gradient-gold);
+      border-radius: 2px;
+      transition: width var(--transition-slow);
+    }
+
+    .progress-bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .progress-bar-label span {
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+
+    .progress-bar-label .percentage {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Details Grid */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .detail-card-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .detail-card-header h4 {
+      font-size: var(--font-size-base);
+      letter-spacing: 1px;
+    }
+
+    .detail-card-body {
+      padding: 20px;
+    }
+
+    /* Key-value rows */
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: var(--font-size-sm);
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-row .detail-label {
+      color: var(--text-dim);
+    }
+
+    .detail-row .detail-value {
+      color: var(--text-secondary);
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .detail-row .detail-value.mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Documents list */
+    .doc-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .doc-item:last-child {
+      border-bottom: none;
+    }
+
+    .doc-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-gold-subtle);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .doc-name {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+    }
+
+    .doc-size {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 1px;
+    }
+
+    .doc-download {
+      color: var(--gold);
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity var(--transition-fast);
+      padding: 4px;
+    }
+
+    .doc-download:hover {
+      opacity: 0.7;
+    }
+
+    /* Activity Log */
+    .activity-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .activity-section-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .activity-section-header h4 {
+      font-size: var(--font-size-base);
+      letter-spacing: 1px;
+    }
+
+    .activity-entry {
+      display: flex;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .activity-entry:last-child {
+      border-bottom: none;
+    }
+
+    .activity-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 12px;
+    }
+
+    .activity-marker .marker-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--charcoal);
+      flex-shrink: 0;
+    }
+
+    .activity-marker .marker-dot.filled {
+      background: var(--gold);
+    }
+
+    .activity-marker .marker-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(232, 185, 48, 0.15);
+      margin-top: 4px;
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-content .entry-text {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+    }
+
+    .activity-content .entry-text strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .activity-content .entry-time {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .shipment-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="icon">&#9633;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link active">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="shipments.html">SHIPMENTS</a> &nbsp;&rsaquo;&nbsp; SS-2026-0847
+      </div>
+
+      <!-- Shipment Header -->
+      <div class="shipment-header">
+        <div>
+          <h2>Shanghai &rarr; Dar es Salaam</h2>
+          <div class="shipment-meta">
+            <span>&#128674; Sea Freight</span>
+            <span>&bull;</span>
+            <span>2x 40ft Container</span>
+          </div>
+        </div>
+        <div class="shipment-header-right">
+          <span class="badge badge-success" style="font-size: 11px; padding: 5px 14px;">IN TRANSIT</span>
+        </div>
+      </div>
+
+      <!-- Progress Timeline -->
+      <div class="progress-section">
+        <h4>Shipment Progress</h4>
+        <div class="timeline">
+          <div class="timeline-progress" style="width: 60%;"></div>
+
+          <div class="timeline-step">
+            <div class="timeline-dot completed">&#10003;</div>
+            <div class="timeline-label" style="color: var(--gold);">Booked</div>
+            <div class="timeline-date">Mar 10</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-dot completed">&#10003;</div>
+            <div class="timeline-label" style="color: var(--gold);">Loaded</div>
+            <div class="timeline-date">Mar 12</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-dot active">&#9679;</div>
+            <div class="timeline-label" style="color: var(--gold);">In Transit</div>
+            <div class="timeline-date" style="color: var(--gold); font-weight: 600;">Now</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-dot pending">4</div>
+            <div class="timeline-label">Customs</div>
+            <div class="timeline-date">~Mar 24</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-dot pending">5</div>
+            <div class="timeline-label">Delivered</div>
+            <div class="timeline-date">~Mar 25</div>
+          </div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 60%;"></div>
+          </div>
+          <div class="progress-bar-label">
+            <span>Shanghai Port</span>
+            <span class="percentage">60% Complete</span>
+            <span>Dar es Salaam Port</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Details Grid -->
+      <div class="detail-grid">
+
+        <!-- Shipment Details -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <h4>Shipment Details</h4>
+          </div>
+          <div class="detail-card-body">
+            <div class="detail-row">
+              <span class="detail-label">Vessel</span>
+              <span class="detail-value">MSC Aria</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Voyage</span>
+              <span class="detail-value mono">MA642E</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Bill of Lading</span>
+              <span class="detail-value mono">MSCUAB847263</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Weight</span>
+              <span class="detail-value">45,200 kg</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Container 1</span>
+              <span class="detail-value mono">MSCU7342819</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Container 2</span>
+              <span class="detail-value mono">MSCU8291047</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <h4>Documents</h4>
+          </div>
+          <div class="detail-card-body">
+            <div class="doc-item">
+              <div class="doc-info">
+                <div class="doc-icon">&#128196;</div>
+                <div>
+                  <div class="doc-name">Bill of Lading</div>
+                  <div class="doc-size">PDF &bull; 245 KB</div>
+                </div>
+              </div>
+              <a href="#" class="doc-download" title="Download">&#11015;</a>
+            </div>
+            <div class="doc-item">
+              <div class="doc-info">
+                <div class="doc-icon">&#128196;</div>
+                <div>
+                  <div class="doc-name">Commercial Invoice</div>
+                  <div class="doc-size">PDF &bull; 180 KB</div>
+                </div>
+              </div>
+              <a href="#" class="doc-download" title="Download">&#11015;</a>
+            </div>
+            <div class="doc-item">
+              <div class="doc-info">
+                <div class="doc-icon">&#128196;</div>
+                <div>
+                  <div class="doc-name">Packing List</div>
+                  <div class="doc-size">PDF &bull; 132 KB</div>
+                </div>
+              </div>
+              <a href="#" class="doc-download" title="Download">&#11015;</a>
+            </div>
+            <div class="doc-item">
+              <div class="doc-info">
+                <div class="doc-icon">&#128196;</div>
+                <div>
+                  <div class="doc-name">Certificate of Origin</div>
+                  <div class="doc-size">PDF &bull; 98 KB</div>
+                </div>
+              </div>
+              <a href="#" class="doc-download" title="Download">&#11015;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Log -->
+      <div class="activity-section">
+        <div class="activity-section-header">
+          <h4>Activity Log</h4>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot filled"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Vessel departed Colombo port</strong> &mdash; en route to Dar es Salaam. Estimated arrival Mar 24.</div>
+            <div class="entry-time">Mar 18, 2026 &bull; 06:20 AM</div>
+          </div>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot filled"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Transshipment completed at Colombo</strong> &mdash; containers transferred to MSC Aria, Voyage MA642E.</div>
+            <div class="entry-time">Mar 16, 2026 &bull; 02:45 PM</div>
+          </div>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot filled"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Vessel departed Shanghai port</strong> &mdash; heading to Colombo for transshipment.</div>
+            <div class="entry-time">Mar 12, 2026 &bull; 11:30 PM</div>
+          </div>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot filled"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Containers loaded onto vessel</strong> &mdash; MSCU7342819 and MSCU8291047 confirmed on board.</div>
+            <div class="entry-time">Mar 12, 2026 &bull; 09:15 AM</div>
+          </div>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot filled"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Export customs cleared</strong> &mdash; all documentation verified and approved by Chinese customs authority.</div>
+            <div class="entry-time">Mar 11, 2026 &bull; 03:00 PM</div>
+          </div>
+        </div>
+
+        <div class="activity-entry">
+          <div class="activity-marker">
+            <div class="marker-dot"></div>
+          </div>
+          <div class="activity-content">
+            <div class="entry-text"><strong>Shipment booked</strong> &mdash; Booking confirmed with MSC for Shanghai to Dar es Salaam via Colombo.</div>
+            <div class="entry-time">Mar 10, 2026 &bull; 10:00 AM</div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

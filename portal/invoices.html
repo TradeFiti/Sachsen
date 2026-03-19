@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoices | Sachsen Spedition Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    .invoice-table-grid {
+      grid-template-columns: 1fr 1.5fr 0.8fr 0.7fr 0.7fr 50px;
+    }
+
+    .inv-number {
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .inv-desc {
+      color: var(--text-secondary);
+    }
+
+    .inv-desc .inv-ref {
+      color: var(--text-dim);
+      font-size: 10px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .inv-amount {
+      color: var(--text-primary);
+      font-weight: 400;
+      font-size: var(--font-size-base);
+    }
+
+    .action-btn {
+      background: none;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--border-gold-strong);
+      color: var(--gold);
+      background: var(--bg-gold-subtle);
+    }
+
+    .action-btn.paid {
+      color: var(--success);
+      border-color: rgba(76, 175, 80, 0.2);
+    }
+
+    .payment-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: var(--space-xl);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-lg);
+    }
+
+    .payment-tab {
+      padding: 12px 24px;
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      border-bottom: 2px solid transparent;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-primary);
+    }
+
+    .payment-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .payment-tab:hover {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .invoice-summary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="icon">&#9634;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link active">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+      <div class="portal-header">
+        <div>
+          <h2>Invoices</h2>
+          <div class="portal-subtitle">March 2026</div>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="invoice-summary">
+        <div class="stat-card gold">
+          <div class="stat-label">Total Outstanding</div>
+          <div class="stat-value">$12,450</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Overdue</div>
+          <div class="stat-value" style="color: var(--danger);">$3,200</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Paid This Month</div>
+          <div class="stat-value">$28,750</div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active">All (15)</button>
+        <button class="filter-tab">Pending (4)</button>
+        <button class="filter-tab">Paid (9)</button>
+        <button class="filter-tab">Overdue (2)</button>
+      </div>
+
+      <!-- Invoice Table -->
+      <div class="data-table">
+        <div class="table-head invoice-table-grid">
+          <span>INVOICE #</span>
+          <span>DESCRIPTION</span>
+          <span>AMOUNT</span>
+          <span>STATUS</span>
+          <span>DUE DATE</span>
+          <span></span>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0312</div>
+          <div class="inv-desc">
+            Sea freight Shanghai-DSM
+            <span class="inv-ref">SS-2026-0847</span>
+          </div>
+          <div class="inv-amount">$8,450</div>
+          <div><span class="badge badge-warning">PENDING</span></div>
+          <div>Mar 30</div>
+          <div><button class="action-btn" title="Download">&darr;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0298</div>
+          <div class="inv-desc">
+            Customs clearance
+            <span class="inv-ref">SS-2026-0852</span>
+          </div>
+          <div class="inv-amount">$1,200</div>
+          <div><span class="badge badge-danger">OVERDUE</span></div>
+          <div>Mar 15</div>
+          <div><button class="action-btn" title="Download">&darr;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0310</div>
+          <div class="inv-desc">
+            Air freight Dubai-DSM
+            <span class="inv-ref">SS-2026-0852</span>
+          </div>
+          <div class="inv-amount">$3,650</div>
+          <div><span class="badge badge-warning">PENDING</span></div>
+          <div>Mar 28</div>
+          <div><button class="action-btn" title="Download">&darr;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0285</div>
+          <div class="inv-desc">
+            Road transport DSM-Kigali
+            <span class="inv-ref">Cross-border logistics</span>
+          </div>
+          <div class="inv-amount">$2,800</div>
+          <div><span class="badge badge-success">PAID</span></div>
+          <div>Mar 10</div>
+          <div><button class="action-btn paid" title="Paid">&#10003;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0291</div>
+          <div class="inv-desc">
+            Port handling charges
+            <span class="inv-ref">SS-2026-0839</span>
+          </div>
+          <div class="inv-amount">$950</div>
+          <div><span class="badge badge-success">PAID</span></div>
+          <div>Mar 12</div>
+          <div><button class="action-btn paid" title="Paid">&#10003;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0278</div>
+          <div class="inv-desc">
+            Documentation fees
+            <span class="inv-ref">Administrative charges</span>
+          </div>
+          <div class="inv-amount">$450</div>
+          <div><span class="badge badge-success">PAID</span></div>
+          <div>Mar 05</div>
+          <div><button class="action-btn paid" title="Paid">&#10003;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0302</div>
+          <div class="inv-desc">
+            Storage charges
+            <span class="inv-ref">SS-2026-0847</span>
+          </div>
+          <div class="inv-amount">$2,000</div>
+          <div><span class="badge badge-danger">OVERDUE</span></div>
+          <div>Mar 18</div>
+          <div><button class="action-btn" title="Download">&darr;</button></div>
+        </div>
+
+        <div class="table-row invoice-table-grid">
+          <div class="inv-number">INV-2026-0275</div>
+          <div class="inv-desc">
+            Customs brokerage
+            <span class="inv-ref">SS-2026-0839</span>
+          </div>
+          <div class="inv-amount">$1,850</div>
+          <div><span class="badge badge-success">PAID</span></div>
+          <div>Mar 03</div>
+          <div><button class="action-btn paid" title="Paid">&#10003;</button></div>
+        </div>
+      </div>
+
+      <!-- Payment History Tab -->
+      <div class="payment-tabs">
+        <button class="payment-tab active">Invoice List</button>
+        <button class="payment-tab">Payment History</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

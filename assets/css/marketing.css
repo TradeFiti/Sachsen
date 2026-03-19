@@ -1,0 +1,242 @@
+/* Sachsen Spedition — Marketing Pages Styles */
+
+/* ===== POSTER LAYOUTS ===== */
+.poster {
+  background: var(--gradient-hero);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl);
+  position: relative;
+}
+
+.poster-vertical {
+  aspect-ratio: 9 / 16;
+  max-width: 400px;
+  margin: 0 auto var(--space-xl);
+}
+
+.poster-square {
+  aspect-ratio: 1 / 1;
+  max-width: 500px;
+}
+
+.poster .poster-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gold);
+  color: var(--charcoal);
+  padding: 4px 12px;
+  font-size: var(--font-size-xs);
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+
+.poster .poster-logo {
+  margin-bottom: var(--space-lg);
+}
+
+.poster h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+.poster .poster-subtitle {
+  color: var(--text-muted);
+  font-size: var(--font-size-base);
+  max-width: 400px;
+  margin-bottom: var(--space-lg);
+}
+
+.poster-features {
+  display: flex;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.poster-feature {
+  text-align: center;
+}
+
+.poster-feature .pf-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.poster-feature .pf-text {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.poster-contact {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 var(--space-xl);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+}
+
+/* ===== COMPANY PROFILE ===== */
+.profile-page {
+  background: var(--gradient-dark);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: var(--space-xl);
+}
+
+.profile-header {
+  text-align: center;
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border-gold);
+  margin-bottom: var(--space-xl);
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.profile-stat {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.profile-stat .value {
+  font-size: var(--font-size-xl);
+  color: var(--gold);
+  font-weight: 200;
+}
+
+.profile-stat .label {
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  margin-top: 5px;
+}
+
+.profile-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.profile-service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--space-sm);
+}
+
+.profile-service .ps-icon {
+  font-size: 20px;
+}
+
+.profile-service .ps-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.profile-contact {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border-gold);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+/* ===== SOCIAL MEDIA TEMPLATES ===== */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.social-preview {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.social-preview-header {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.social-preview-body {
+  aspect-ratio: 1 / 1;
+  background: var(--gradient-hero);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.social-preview-caption {
+  padding: 12px 15px;
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.banner-preview {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+}
+
+.banner-preview-header {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--font-size-xs);
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.banner-preview-body {
+  aspect-ratio: 16 / 5;
+  background: var(--gradient-hero);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .social-grid { grid-template-columns: 1fr; }
+  .profile-stats { grid-template-columns: repeat(2, 1fr); }
+  .profile-services { grid-template-columns: 1fr; }
+  .profile-contact { grid-template-columns: 1fr; }
+}

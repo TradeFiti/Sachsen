@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipments | Sachsen Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    .portal-header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .search-input {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px 8px 32px;
+      color: var(--text-secondary);
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      width: 220px;
+      transition: border-color var(--transition-fast);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23555555' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 10px center;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--border-gold-strong);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--border-gold);
+      color: var(--gold);
+    }
+
+    .filter-tab .count {
+      color: var(--text-dim);
+      font-size: 9px;
+      margin-left: 3px;
+    }
+
+    .filter-tab.active .count {
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* Shipments table */
+    .table-head.ship-cols,
+    .table-row.ship-cols {
+      grid-template-columns: 130px 1.5fr 90px 110px 90px 80px;
+    }
+
+    .table-row .tracking-link {
+      color: var(--gold);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .table-row .tracking-link:hover {
+      text-decoration: underline;
+    }
+
+    .view-link {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .view-link:hover {
+      color: var(--gold);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-md);
+      padding: 0 var(--space-xs);
+    }
+
+    .pagination-info {
+      font-size: var(--font-size-sm);
+      color: var(--text-dim);
+    }
+
+    .pagination-controls {
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    .pagination-btn {
+      background: none;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .pagination-btn:hover {
+      border-color: var(--border-gold);
+      color: var(--gold);
+    }
+
+    .pagination-btn.disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    @media (max-width: 768px) {
+      .search-input { width: 140px; }
+      .table-head.ship-cols,
+      .table-row.ship-cols {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="icon">&#9633;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link active">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+
+      <!-- Header -->
+      <div class="portal-header">
+        <div>
+          <h2>Shipments</h2>
+          <p class="portal-subtitle">7 active shipments</p>
+        </div>
+        <div class="portal-header-actions">
+          <input type="text" class="search-input" placeholder="Search shipments...">
+          <button class="filter-btn">&#9776; Filters</button>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active">All <span class="count">(12)</span></button>
+        <button class="filter-tab">In Transit <span class="count">(4)</span></button>
+        <button class="filter-tab">Customs <span class="count">(2)</span></button>
+        <button class="filter-tab">Loading <span class="count">(1)</span></button>
+        <button class="filter-tab">Delivered <span class="count">(5)</span></button>
+      </div>
+
+      <!-- Shipments Table -->
+      <div class="data-table">
+        <div class="table-head ship-cols">
+          <span>TRACKING #</span>
+          <span>ROUTE</span>
+          <span>TYPE</span>
+          <span>STATUS</span>
+          <span>ETA</span>
+          <span>ACTIONS</span>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0847</a>
+          <span>Shanghai &rarr; Dar es Salaam</span>
+          <span>&#128674; Sea</span>
+          <span><span class="badge badge-success">In Transit</span></span>
+          <span>Mar 25</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0852</a>
+          <span>Dubai &rarr; Dar es Salaam</span>
+          <span>&#9992;&#65039; Air</span>
+          <span><span class="badge badge-warning">Customs</span></span>
+          <span>Mar 20</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0861</a>
+          <span>Dar es Salaam &rarr; Kigali</span>
+          <span>&#128667; Road</span>
+          <span><span class="badge badge-info">Loading</span></span>
+          <span>Mar 22</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0839</a>
+          <span>Mumbai &rarr; Dar es Salaam</span>
+          <span>&#128674; Sea</span>
+          <span><span class="badge badge-success">Delivered</span></span>
+          <span>Mar 18</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0855</a>
+          <span>Rotterdam &rarr; Dar es Salaam</span>
+          <span>&#128674; Sea</span>
+          <span><span class="badge badge-success">In Transit</span></span>
+          <span>Apr 02</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0858</a>
+          <span>Mombasa &rarr; Dar es Salaam</span>
+          <span>&#128667; Road</span>
+          <span><span class="badge badge-success">Delivered</span></span>
+          <span>Mar 15</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0863</a>
+          <span>Nairobi &rarr; Dar es Salaam</span>
+          <span>&#128667; Road</span>
+          <span><span class="badge badge-success">In Transit</span></span>
+          <span>Mar 21</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+        <div class="table-row ship-cols">
+          <a href="shipment-detail.html" class="tracking-link">SS-2026-0866</a>
+          <span>Kampala &rarr; Dar es Salaam</span>
+          <span>&#9992;&#65039; Air</span>
+          <span><span class="badge badge-warning">Customs</span></span>
+          <span>Mar 23</span>
+          <a href="shipment-detail.html" class="view-link">View &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <span class="pagination-info">Showing 1&ndash;8 of 12</span>
+        <div class="pagination-controls">
+          <button class="pagination-btn disabled">&larr; Prev</button>
+          <button class="pagination-btn">Next &rarr;</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

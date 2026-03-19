@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages | Sachsen Spedition Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    .messages-layout {
+      height: calc(100vh - 140px);
+      min-height: 500px;
+    }
+
+    .message-item .msg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+
+    .message-item .msg-subject {
+      font-size: var(--font-size-sm);
+      font-weight: 400;
+    }
+
+    .unread-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .thread-agent {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--bg-gold-subtle);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-sm);
+    }
+
+    .thread-agent .agent-label {
+      color: var(--text-dim);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .thread-agent .agent-name {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .thread-agent .agent-role {
+      color: var(--text-dim);
+      font-size: 10px;
+    }
+
+    .thread-messages {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+    }
+
+    .msg-sender {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .thread-message.sent .msg-sender {
+      text-align: right;
+    }
+
+    .unread-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 9px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-left: 8px;
+    }
+
+    .thread-input .btn {
+      padding: 10px 20px;
+      flex-shrink: 0;
+    }
+
+    .thread-input input:focus {
+      outline: none;
+      border-color: var(--border-gold-strong);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="icon">&#9634;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link active">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+      <div class="portal-header">
+        <div>
+          <h2>Messages <span class="unread-count">3</span></h2>
+          <div class="portal-subtitle">3 unread conversations</div>
+        </div>
+      </div>
+
+      <!-- Messages Layout -->
+      <div class="messages-layout">
+        <!-- Message List (Left) -->
+        <div class="message-list">
+
+          <!-- Conversation 1 — Active -->
+          <div class="message-item active">
+            <div class="msg-header">
+              <div class="msg-subject">Customs clearance update &mdash; SS-2026-0852</div>
+              <span class="unread-dot"></span>
+            </div>
+            <div class="msg-preview">Your shipment has cleared customs...</div>
+            <div class="msg-time">2h ago</div>
+          </div>
+
+          <!-- Conversation 2 -->
+          <div class="message-item">
+            <div class="msg-header">
+              <div class="msg-subject">Document request &mdash; SS-2026-0847</div>
+              <span class="unread-dot"></span>
+            </div>
+            <div class="msg-preview">Please upload the amended...</div>
+            <div class="msg-time">5h ago</div>
+          </div>
+
+          <!-- Conversation 3 -->
+          <div class="message-item">
+            <div class="msg-header">
+              <div class="msg-subject">Quote confirmation &mdash; QR-2026-089</div>
+              <span class="unread-dot"></span>
+            </div>
+            <div class="msg-preview">Your quote has been approved...</div>
+            <div class="msg-time">Yesterday</div>
+          </div>
+
+          <!-- Conversation 4 -->
+          <div class="message-item">
+            <div class="msg-header">
+              <div class="msg-subject">Delivery scheduled &mdash; SS-2026-0839</div>
+            </div>
+            <div class="msg-preview">Delivery confirmed for...</div>
+            <div class="msg-time">Mar 17</div>
+          </div>
+
+          <!-- Conversation 5 -->
+          <div class="message-item">
+            <div class="msg-header">
+              <div class="msg-subject">Invoice reminder &mdash; INV-2026-0298</div>
+            </div>
+            <div class="msg-preview">Payment reminder for...</div>
+            <div class="msg-time">Mar 14</div>
+          </div>
+
+        </div>
+
+        <!-- Message Thread (Right) -->
+        <div class="message-thread">
+          <div class="thread-header">
+            <h4>Customs clearance update</h4>
+            <div class="thread-ref">SS-2026-0852</div>
+          </div>
+
+          <div class="thread-agent">
+            <div>
+              <span class="agent-label">Assigned to: </span>
+              <span class="agent-name">James Mwangi</span>
+              <span class="agent-role"> &mdash; Customs Specialist</span>
+            </div>
+          </div>
+
+          <div class="thread-messages">
+            <!-- Received message -->
+            <div class="thread-message received">
+              <div class="msg-sender">James Mwangi</div>
+              <div class="msg-bubble">
+                Good afternoon. I wanted to update you on your Dubai shipment (SS-2026-0852). The TRA customs inspection has been completed and your goods have been cleared. We will arrange port release and delivery within 24&ndash;48 hours.
+              </div>
+              <div class="msg-meta">2:30 PM</div>
+            </div>
+
+            <!-- Sent message -->
+            <div class="thread-message sent">
+              <div class="msg-sender">You</div>
+              <div class="msg-bubble">
+                That's great news! Can you send me the customs release document once it's ready?
+              </div>
+              <div class="msg-meta">2:45 PM</div>
+            </div>
+
+            <!-- Received message -->
+            <div class="thread-message received">
+              <div class="msg-sender">James Mwangi</div>
+              <div class="msg-bubble">
+                Absolutely. I'll upload the customs release certificate to your Document Vault as soon as it's issued. You'll receive a notification.
+              </div>
+              <div class="msg-meta">2:50 PM</div>
+            </div>
+          </div>
+
+          <!-- Input Area -->
+          <div class="thread-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="btn btn-gold btn-sm">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

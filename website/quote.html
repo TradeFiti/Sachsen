@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote — Sachsen Spedition (T) Limited</title>
+  <meta name="description" content="Request a competitive logistics quote from Sachsen Spedition. Sea freight, air freight, road transport, and customs brokerage services in Tanzania.">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/website.css">
+</head>
+<body>
+
+  <!-- Back to Hub -->
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <!-- Simplified Nav (logo only) -->
+  <nav class="site-nav" style="justify-content: center;">
+    <a href="homepage.html" class="logo">
+      <div class="logo-diamond"><span>SS</span></div>
+      <div class="logo-text">
+        <span class="name">SACHSEN</span>
+        <span class="tagline">SPEDITION</span>
+      </div>
+    </a>
+  </nav>
+
+  <!-- Quote Page -->
+  <div class="quote-page">
+    <div class="quote-form-container">
+
+      <!-- Header -->
+      <div class="text-center" style="margin-bottom: var(--space-xl);">
+        <span class="label">Free &amp; No Obligation</span>
+        <div class="divider-gold-center"></div>
+        <h1 style="font-size: var(--font-size-2xl);">Request a Quote</h1>
+        <p class="subtitle" style="margin: var(--space-md) auto 0;">Tell us about your shipment and we will respond with a competitive, transparent quote within 24 hours.</p>
+      </div>
+
+      <!-- Multi-step Visual -->
+      <div class="quote-steps">
+        <div class="quote-step active">
+          <div class="step-dot"></div>
+          <span>Shipment Type</span>
+        </div>
+        <div class="quote-step">
+          <div class="step-dot"></div>
+          <span>Cargo Details</span>
+        </div>
+        <div class="quote-step">
+          <div class="step-dot"></div>
+          <span>Contact Info</span>
+        </div>
+      </div>
+
+      <!-- Quote Form -->
+      <form action="#" method="post" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-xl);">
+
+        <!-- Step 1: Shipment Type -->
+        <div style="margin-bottom: var(--space-lg);">
+          <label class="form-label" style="margin-bottom: var(--space-md); display: block;">Select Shipment Type *</label>
+          <div class="type-selector">
+            <label class="type-option" for="type-sea">
+              <input type="radio" name="shipment_type" id="type-sea" value="sea" style="display: none;">
+              <div class="type-icon">&#9875;</div>
+              <div class="type-name">Sea Freight</div>
+            </label>
+            <label class="type-option" for="type-air">
+              <input type="radio" name="shipment_type" id="type-air" value="air" style="display: none;">
+              <div class="type-icon">&#9992;</div>
+              <div class="type-name">Air Freight</div>
+            </label>
+            <label class="type-option" for="type-road">
+              <input type="radio" name="shipment_type" id="type-road" value="road" style="display: none;">
+              <div class="type-icon">&#128666;</div>
+              <div class="type-name">Road Transport</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Shipment Details -->
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="quote-origin">Origin (City / Port / Country) *</label>
+            <input type="text" id="quote-origin" name="origin" class="form-input" placeholder="e.g., Shanghai, China" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quote-destination">Destination (City / Port / Country) *</label>
+            <input type="text" id="quote-destination" name="destination" class="form-input" placeholder="e.g., Dar es Salaam, Tanzania" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="quote-cargo">Cargo Description *</label>
+          <textarea id="quote-cargo" name="cargo_description" class="form-textarea" placeholder="Describe your cargo: type of goods, packaging, any special handling requirements..." required style="min-height: 80px;"></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="quote-weight">Estimated Weight (kg)</label>
+            <input type="text" id="quote-weight" name="weight" class="form-input" placeholder="e.g., 5,000 kg">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quote-container">Container Type</label>
+            <select id="quote-container" name="container_type" class="form-select">
+              <option value="" disabled selected>Select container type</option>
+              <option value="20ft">20ft Standard Container</option>
+              <option value="40ft">40ft Standard Container</option>
+              <option value="40hc">40ft High Cube Container</option>
+              <option value="20rf">20ft Reefer Container</option>
+              <option value="40rf">40ft Reefer Container</option>
+              <option value="ot">Open Top Container</option>
+              <option value="fr">Flat Rack Container</option>
+              <option value="lcl">LCL (Loose Cargo)</option>
+              <option value="bulk">Bulk / Break-Bulk</option>
+              <option value="na">Not Applicable</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Additional Services -->
+        <div class="form-group">
+          <label class="form-label" style="margin-bottom: var(--space-sm);">Additional Services Required</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="customs" style="accent-color: var(--gold);"> Customs Clearance
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="documentation" style="accent-color: var(--gold);"> Documentation
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="insurance" style="accent-color: var(--gold);"> Cargo Insurance
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="warehousing" style="accent-color: var(--gold);"> Warehousing
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="inland" style="accent-color: var(--gold);"> Inland Transport
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: var(--font-size-sm); cursor: pointer;">
+              <input type="checkbox" name="services[]" value="tracking" style="accent-color: var(--gold);"> Real-Time Tracking
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div style="border-top: 1px solid var(--border-subtle); margin: var(--space-lg) 0;"></div>
+
+        <!-- Contact Information -->
+        <div style="margin-bottom: var(--space-lg);">
+          <span class="label" style="margin-bottom: var(--space-md); display: block;">Your Contact Information</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="quote-name">Full Name *</label>
+            <input type="text" id="quote-name" name="name" class="form-input" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quote-company">Company Name</label>
+            <input type="text" id="quote-company" name="company" class="form-input" placeholder="Your company">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="quote-email">Email Address *</label>
+            <input type="email" id="quote-email" name="email" class="form-input" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quote-phone">Phone Number *</label>
+            <input type="tel" id="quote-phone" name="phone" class="form-input" placeholder="+255 7XX XXX XXX" required>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center; padding: 16px 28px; font-size: var(--font-size-base); margin-top: var(--space-md);">
+          Submit &amp; Get Your Quote Within 24 Hours
+        </button>
+      </form>
+
+      <!-- Trust Signals -->
+      <div style="margin-top: var(--space-xl);">
+        <div class="grid-3" style="text-align: center;">
+          <div class="animate-in">
+            <div style="font-size: 24px; margin-bottom: var(--space-xs);">&#128274;</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-dim); letter-spacing: 1px;">Secure &amp; Confidential</div>
+            <p style="font-size: var(--font-size-xs); color: var(--text-dim); margin-bottom: 0;">Your information is protected and never shared with third parties.</p>
+          </div>
+          <div class="animate-in">
+            <div style="font-size: 24px; margin-bottom: var(--space-xs);">&#9889;</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-dim); letter-spacing: 1px;">Fast Response</div>
+            <p style="font-size: var(--font-size-xs); color: var(--text-dim); margin-bottom: 0;">Receive a detailed, competitive quote from our team within 24 hours.</p>
+          </div>
+          <div class="animate-in">
+            <div style="font-size: 24px; margin-bottom: var(--space-xs);">&#128176;</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-dim); letter-spacing: 1px;">No Hidden Fees</div>
+            <p style="font-size: var(--font-size-xs); color: var(--text-dim); margin-bottom: 0;">Transparent pricing with full cost breakdown. No obligation, no surprises.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer link -->
+      <div class="text-center" style="margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--border-subtle);">
+        <p style="font-size: var(--font-size-sm); color: var(--text-dim); margin-bottom: var(--space-xs);">Prefer to talk to someone directly?</p>
+        <p style="font-size: var(--font-size-sm); margin-bottom: var(--space-xs);">
+          <a href="tel:+255222138051" style="color: var(--gold);">+255 22 213 8051</a> &nbsp;&middot;&nbsp;
+          <a href="mailto:info@sachsen.co.tz" style="color: var(--gold);">info@sachsen.co.tz</a>
+        </p>
+        <p style="font-size: var(--font-size-xs); color: var(--text-dim); margin-bottom: 0;">
+          &copy; 2026 Sachsen Spedition (T) Limited &nbsp;&middot;&nbsp;
+          <a href="homepage.html" style="color: var(--text-dim);">Back to Website</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Shipment type selector interaction
+    document.querySelectorAll('.type-option').forEach(option => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.type-option').forEach(o => o.classList.remove('selected'));
+        option.classList.add('selected');
+        option.querySelector('input[type="radio"]').checked = true;
+      });
+    });
+  </script>
+</body>
+</html>

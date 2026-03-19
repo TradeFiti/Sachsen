@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sachsen Spedition | Digital Transformation Proposal</title>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+  <style>
+    /* Hub-specific enhancements */
+    body {
+      background: var(--charcoal);
+      min-height: 100vh;
+    }
+
+    .hub-header {
+      background: rgba(10, 10, 20, 0.6);
+      backdrop-filter: blur(20px);
+    }
+
+    .hub-header .logo-diamond {
+      width: 32px;
+      height: 32px;
+    }
+
+    .hub-header .logo-diamond span {
+      font-size: 11px;
+    }
+
+    .hub-hero {
+      position: relative;
+      padding: 80px 40px 60px;
+      overflow: hidden;
+    }
+
+    .hub-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232, 185, 48, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hub-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-gold-strong), transparent);
+    }
+
+    .hub-hero .diamond-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(232, 185, 48, 0.03);
+      pointer-events: none;
+    }
+
+    .hub-hero .diamond-watermark::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+      border: 1px solid rgba(232, 185, 48, 0.025);
+    }
+
+    .hub-hero .diamond-watermark::after {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      right: 60px;
+      bottom: 60px;
+      border: 1px solid rgba(232, 185, 48, 0.02);
+    }
+
+    .hub-hero .prepared-for {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hub-hero h1 {
+      font-size: 38px;
+      font-weight: 200;
+      letter-spacing: 6px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hub-hero h1 .highlight {
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    .hub-hero .hub-desc {
+      font-size: var(--font-size-base);
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hub-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hub-pillars {
+      padding: 40px 40px 50px;
+      margin-top: 0;
+    }
+
+    .pillar-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .pillar-card:hover::before {
+      opacity: 1;
+    }
+
+    .pillar-card .pillar-number {
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .pillar-card h3 {
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .pillar-card .pillar-desc {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .pillar-links {
+      margin-top: 18px;
+      padding-top: 18px;
+    }
+
+    .pillar-links li {
+      padding: 5px 0;
+    }
+
+    .pillar-links a {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .pillar-card-wide {
+      text-align: left;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .pillar-card-wide .pillar-header {
+      text-align: center;
+      padding-right: 30px;
+      border-right: 1px solid var(--border-gold);
+      align-self: center;
+    }
+
+    .pillar-card-wide .pillar-links {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .hub-footer {
+      text-align: center;
+      padding: 30px 40px;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 20, 0.4);
+    }
+
+    .hub-footer p {
+      font-size: var(--font-size-xs);
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hub-footer .footer-brand {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .hub-footer .footer-date {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 3px;
+    }
+
+    .hub-footer .footer-line {
+      width: 40px;
+      height: 1px;
+      background: var(--border-gold);
+      margin: 12px auto;
+    }
+
+    .hub-footer .confidential {
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      opacity: 0.5;
+    }
+
+    /* Section label above pillars */
+    .section-label {
+      text-align: center;
+      padding: 30px 40px 0;
+    }
+
+    .section-label span {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .section-label span::before,
+    .section-label span::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    .section-label span::before { right: 100%; }
+    .section-label span::after { left: 100%; }
+
+    @media (max-width: 768px) {
+      .hub-hero { padding: 50px 20px 40px; }
+      .hub-hero h1 { font-size: 24px; letter-spacing: 3px; }
+      .hub-pillars { padding: 20px; }
+      .pillar-card-wide {
+        grid-template-columns: 1fr;
+      }
+      .pillar-card-wide .pillar-header {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border-gold);
+      }
+      .hub-footer { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="hub-header">
+    <a href="index.html" class="logo">
+      <div class="logo-diamond"><span>SS</span></div>
+      <div class="logo-text">
+        <span class="name">SACHSEN</span>
+        <span class="tagline">SPEDITION (T) LIMITED</span>
+      </div>
+    </a>
+    <span class="hub-badge">DIGITAL TRANSFORMATION PROPOSAL</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="hub-hero">
+    <div class="diamond-watermark"></div>
+    <p class="prepared-for">Prepared for</p>
+    <h1>SACHSEN <span class="highlight">SPEDITION</span> (T) LIMITED</h1>
+    <div class="hub-divider"></div>
+    <p class="hub-desc">
+      A comprehensive digital presence and brand overhaul strategy &mdash;
+      from visual identity to client-facing technology &mdash;
+      designed to position Sachsen Spedition as East Africa's premier clearing &amp; forwarding partner.
+    </p>
+  </section>
+
+  <!-- Section Label -->
+  <div class="section-label">
+    <span>Transformation Pillars</span>
+  </div>
+
+  <!-- Pillar Cards -->
+  <div class="hub-pillars">
+
+    <!-- Pillar 01: Brand Identity -->
+    <div class="pillar-card animate-in">
+      <div class="pillar-number">01</div>
+      <div class="pillar-icon">&#9670;</div>
+      <h3>Brand Identity</h3>
+      <p class="pillar-desc">
+        Complete visual identity system &mdash; logo, color palette, typography, and usage guidelines for consistent brand representation.
+      </p>
+      <ul class="pillar-links">
+        <li><a href="brand/guidelines.html">Brand Guidelines</a></li>
+      </ul>
+    </div>
+
+    <!-- Pillar 02: Website -->
+    <div class="pillar-card animate-in">
+      <div class="pillar-number">02</div>
+      <div class="pillar-icon">&#9741;</div>
+      <h3>Website</h3>
+      <p class="pillar-desc">
+        Nine-page responsive website conveying expertise, credibility, and a seamless path from visitor to client.
+      </p>
+      <ul class="pillar-links">
+        <li><a href="website/homepage.html">Homepage</a></li>
+        <li><a href="website/about.html">About Us</a></li>
+        <li><a href="website/services.html">Services Overview</a></li>
+        <li><a href="website/service-sea.html">Sea Freight</a></li>
+        <li><a href="website/service-air.html">Air Freight</a></li>
+        <li><a href="website/service-road.html">Road Transport</a></li>
+        <li><a href="website/service-customs.html">Customs Brokerage</a></li>
+        <li><a href="website/contact.html">Contact</a></li>
+        <li><a href="website/quote.html">Request a Quote</a></li>
+      </ul>
+    </div>
+
+    <!-- Pillar 03: Marketing -->
+    <div class="pillar-card animate-in">
+      <div class="pillar-number">03</div>
+      <div class="pillar-icon">&#9733;</div>
+      <h3>Marketing</h3>
+      <p class="pillar-desc">
+        Print-ready marketing collateral and social media assets to amplify visibility and drive engagement.
+      </p>
+      <ul class="pillar-links">
+        <li><a href="marketing/posters.html">Posters &amp; Print</a></li>
+        <li><a href="marketing/company-profile.html">Company Profile</a></li>
+        <li><a href="marketing/social-media.html">Social Media</a></li>
+      </ul>
+    </div>
+
+    <!-- Pillar 04: Client Portal (Wide) -->
+    <div class="pillar-card pillar-card-wide animate-in">
+      <div class="pillar-header">
+        <div class="pillar-number">04</div>
+        <div class="pillar-icon">&#9878;</div>
+        <h3>Client Portal</h3>
+        <p class="pillar-desc">
+          A secure, real-time shipment management platform offering full transparency into cargo status, documents, and invoices.
+        </p>
+      </div>
+      <ul class="pillar-links">
+        <li><a href="portal/overview.html">Portal Overview</a></li>
+        <li><a href="portal/dashboard.html">Dashboard</a></li>
+        <li><a href="portal/shipments.html">Shipments</a></li>
+        <li><a href="portal/shipment-detail.html">Shipment Detail</a></li>
+        <li><a href="portal/quotes.html">Quotes</a></li>
+        <li><a href="portal/documents.html">Documents</a></li>
+        <li><a href="portal/invoices.html">Invoices</a></li>
+        <li><a href="portal/messages.html">Messages</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="hub-footer">
+    <p>Prepared by <span class="footer-brand">Tradefiti</span></p>
+    <div class="footer-line"></div>
+    <p class="footer-date">March 2026</p>
+    <p class="confidential">Confidential &mdash; For Internal Review Only</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

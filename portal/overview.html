@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Proposal | Sachsen Spedition</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    .proposal-section {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
+    .proposal-section .container {
+      max-width: 1000px;
+    }
+
+    .proposal-section-alt {
+      background: rgba(10, 10, 20, 0.5);
+    }
+
+    .proposal-hero .hero-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+      padding: 6px 16px;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-sm);
+    }
+
+    .proposal-hero h1 {
+      font-size: 42px;
+      font-weight: 200;
+      letter-spacing: 4px;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .proposal-hero h1 .highlight {
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    .proposal-hero .hero-subtitle {
+      font-size: var(--font-size-md);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.8;
+    }
+
+    .proposal-hero .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    /* Challenge Section */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .challenge-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      text-align: center;
+    }
+
+    .challenge-card .challenge-icon {
+      font-size: 32px;
+      margin-bottom: var(--space-md);
+    }
+
+    .challenge-card h4 {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-sm);
+      letter-spacing: 1px;
+    }
+
+    .challenge-card p {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* Investment Section */
+    .investment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .investment-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    .investment-card .inv-label {
+      font-size: var(--font-size-xs);
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+
+    .investment-card .inv-value {
+      font-size: var(--font-size-2xl);
+      font-weight: 200;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .investment-card .inv-note {
+      font-size: var(--font-size-sm);
+      color: var(--text-dim);
+      margin-top: var(--space-xs);
+      margin-bottom: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-xl);
+      background: var(--gradient-hero);
+      position: relative;
+    }
+
+    .cta-section h2 {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-md);
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .challenge-grid { grid-template-columns: 1fr; }
+      .investment-grid { grid-template-columns: 1fr; }
+      .proposal-hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <!-- Hero -->
+  <section class="proposal-hero">
+    <div class="hero-badge">Pillar 04 &mdash; Client Portal</div>
+    <h1>Introducing the Sachsen<br><span class="highlight">Client Portal</span></h1>
+    <p class="hero-subtitle">
+      A secure, self-service digital platform that gives your clients 24/7 visibility
+      into their shipments, documents, invoices, and communications &mdash;
+      all in one place.
+    </p>
+    <div class="divider-gold-center"></div>
+    <div class="hero-actions" style="margin-top: var(--space-lg);">
+      <a href="#solution" class="btn btn-gold">See the Solution</a>
+      <a href="dashboard.html" class="btn btn-outline">View Live Demo</a>
+    </div>
+  </section>
+
+  <!-- The Challenge -->
+  <section class="proposal-section proposal-section-alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">The Problem</span>
+        <h2 style="margin-top: var(--space-sm);">The Challenge</h2>
+        <div class="divider-gold-center"></div>
+        <p class="subtitle" style="margin: var(--space-md) auto 0; max-width: 650px;">
+          In today's logistics landscape, clients expect instant access to information.
+          The current manual workflow creates friction for everyone involved.
+        </p>
+      </div>
+      <div class="challenge-grid">
+        <div class="challenge-card animate-in">
+          <div class="challenge-icon">&#128222;</div>
+          <h4>Constant Follow-Ups</h4>
+          <p>Clients call and email for every status update, tying up your team's time with routine inquiries that could be self-service.</p>
+        </div>
+        <div class="challenge-card animate-in">
+          <div class="challenge-icon">&#128196;</div>
+          <h4>Documents Get Lost</h4>
+          <p>Bills of lading, invoices, and certificates are scattered across emails, WhatsApp messages, and physical files &mdash; hard to find when needed.</p>
+        </div>
+        <div class="challenge-card animate-in">
+          <div class="challenge-icon">&#128200;</div>
+          <h4>Invoice Tracking Gaps</h4>
+          <p>Clients struggle to track outstanding payments, and your finance team spends hours reconciling and chasing late invoices manually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section id="solution" class="proposal-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">The Solution</span>
+        <h2 style="margin-top: var(--space-sm);">24/7 Self-Service Portal</h2>
+        <div class="divider-gold-center"></div>
+        <p class="subtitle" style="margin: var(--space-md) auto 0; max-width: 650px;">
+          A branded client portal that puts every piece of information at your clients' fingertips &mdash;
+          reducing calls, improving satisfaction, and positioning Sachsen as a modern logistics partner.
+        </p>
+      </div>
+      <div class="proposal-features" style="margin-top: var(--space-xl);">
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128674;</div>
+          <h3>Real-Time Tracking</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            Live shipment tracking with visual timelines, vessel details, ETAs, and milestone notifications for every consignment.
+          </p>
+        </div>
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128203;</div>
+          <h3>Instant Quotes</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            Clients submit quote requests online, receive estimates, and approve &mdash; all without a single phone call.
+          </p>
+        </div>
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128193;</div>
+          <h3>Document Vault</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            Centralized, searchable repository for all shipping documents &mdash; BOLs, invoices, packing lists, certificates &mdash; always available.
+          </p>
+        </div>
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128176;</div>
+          <h3>Invoice Management</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            View, download, and track payment status for all invoices. Automated reminders reduce late payments.
+          </p>
+        </div>
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128172;</div>
+          <h3>Secure Messaging</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            Threaded conversations linked to specific shipments. Full audit trail replaces scattered emails and WhatsApp messages.
+          </p>
+        </div>
+        <div class="proposal-feature animate-in">
+          <div class="feature-icon">&#128276;</div>
+          <h3>Smart Notifications</h3>
+          <p style="color: var(--text-dim); font-size: var(--font-size-sm); margin-bottom: 0;">
+            Automated email and in-app alerts for milestones &mdash; customs clearance, arrival, delivery &mdash; so clients never need to ask.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="proposal-section proposal-section-alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">Why It Matters</span>
+        <h2 style="margin-top: var(--space-sm);">Benefits for Everyone</h2>
+        <div class="divider-gold-center"></div>
+      </div>
+      <div class="benefits-grid" style="margin-top: var(--space-xl);">
+        <div class="benefits-col animate-in">
+          <h3>Benefits for Your Clients</h3>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>24/7 access to shipment status without calling or emailing</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>All documents in one secure, searchable location</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Clear invoice history with payment status at a glance</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Instant quote requests with faster turnaround times</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Proactive notifications instead of reactive follow-ups</p>
+          </div>
+        </div>
+        <div class="benefits-col animate-in">
+          <h3>Benefits for Sachsen</h3>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Reduce inbound calls and emails by up to 60%</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Faster invoice payments through transparency and reminders</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Competitive differentiation in the Tanzania market</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Stronger client retention through superior service experience</p>
+          </div>
+          <div class="benefit-item">
+            <span class="check">&#10003;</span>
+            <p>Data-driven insights into client behavior and shipment patterns</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Timeline -->
+  <section class="proposal-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">The Roadmap</span>
+        <h2 style="margin-top: var(--space-sm);">Implementation Timeline</h2>
+        <div class="divider-gold-center"></div>
+        <p class="subtitle" style="margin: var(--space-md) auto 0; max-width: 600px;">
+          A phased approach ensures quality delivery with minimal disruption to your operations.
+        </p>
+      </div>
+      <div class="implementation-timeline" style="margin-top: var(--space-xl);">
+        <div class="timeline-phase animate-in">
+          <div class="phase-number">1</div>
+          <h4>Discovery</h4>
+          <div class="phase-duration">2 Weeks</div>
+          <ul>
+            <li>Requirements gathering</li>
+            <li>Workflow mapping</li>
+            <li>API & integration audit</li>
+            <li>Wireframe approval</li>
+          </ul>
+        </div>
+        <div class="timeline-phase animate-in">
+          <div class="phase-number">2</div>
+          <h4>Development</h4>
+          <div class="phase-duration">8 Weeks</div>
+          <ul>
+            <li>Backend architecture</li>
+            <li>Frontend build</li>
+            <li>TRA / port integrations</li>
+            <li>Document management</li>
+          </ul>
+        </div>
+        <div class="timeline-phase animate-in">
+          <div class="phase-number">3</div>
+          <h4>Testing</h4>
+          <div class="phase-duration">2 Weeks</div>
+          <ul>
+            <li>User acceptance testing</li>
+            <li>Security audit</li>
+            <li>Performance testing</li>
+            <li>Client pilot group</li>
+          </ul>
+        </div>
+        <div class="timeline-phase animate-in">
+          <div class="phase-number">4</div>
+          <h4>Launch</h4>
+          <div class="phase-duration">1 Week</div>
+          <ul>
+            <li>Staff training</li>
+            <li>Client onboarding</li>
+            <li>Go-live support</li>
+            <li>Feedback collection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment -->
+  <section class="proposal-section proposal-section-alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">Investment</span>
+        <h2 style="margin-top: var(--space-sm);">Projected Costs</h2>
+        <div class="divider-gold-center"></div>
+        <p class="subtitle" style="margin: var(--space-md) auto 0; max-width: 600px;">
+          Final pricing is determined after the Discovery phase. Below are indicative ranges based on similar implementations.
+        </p>
+      </div>
+      <div class="investment-grid">
+        <div class="investment-card animate-in">
+          <div class="inv-label">Development &amp; Setup</div>
+          <div class="inv-value">$XX,XXX &ndash; $XX,XXX</div>
+          <p class="inv-note">One-time &mdash; includes design, development, testing, and launch</p>
+        </div>
+        <div class="investment-card animate-in">
+          <div class="inv-label">Monthly Hosting &amp; Support</div>
+          <div class="inv-value">$XXX / mo</div>
+          <p class="inv-note">Includes hosting, SSL, backups, monitoring, and priority support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <span class="label">Experience It</span>
+    <h2 style="margin-top: var(--space-sm);">See It In Action</h2>
+    <div class="divider-gold-center"></div>
+    <p>
+      We have built a working prototype of the client portal.
+      Explore the dashboard, track a shipment, and see exactly what your clients would experience.
+    </p>
+    <a href="dashboard.html" class="btn btn-gold">Launch Portal Demo &rarr;</a>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

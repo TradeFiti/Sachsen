@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Templates — Sachsen Spedition (T) Limited</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/marketing.css">
+  <style>
+    /* ===== SOCIAL MEDIA PAGE ===== */
+    .social-page {
+      padding: 80px 0 60px;
+    }
+
+    .page-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .section-label {
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-label h2 {
+      font-size: var(--font-size-lg);
+      letter-spacing: 2px;
+      font-weight: 300;
+      margin-bottom: 4px;
+    }
+
+    .section-label .sl-platform {
+      font-size: var(--font-size-xs);
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border-subtle);
+      margin: var(--space-2xl) 0;
+    }
+
+    /* ===== INSTAGRAM SQUARE POSTS ===== */
+    .social-preview-body.square {
+      aspect-ratio: 1 / 1;
+    }
+
+    /* ===== IG POST 1: SERVICE HIGHLIGHT ===== */
+    .ig-service {
+      background:
+        radial-gradient(circle at 20% 80%, rgba(22, 33, 62, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232, 185, 48, 0.05) 0%, transparent 50%),
+        var(--gradient-hero);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ig-service::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 80'%3E%3Cpath fill='rgba(232,185,48,0.05)' d='M0,40 C100,80 200,0 300,40 C350,60 380,50 400,40 L400,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    .ig-post-icon {
+      font-size: 52px;
+      margin-bottom: var(--space-md);
+      filter: drop-shadow(0 4px 15px rgba(232, 185, 48, 0.15));
+    }
+
+    .ig-post-headline {
+      font-size: var(--font-size-lg);
+      letter-spacing: 3px;
+      color: var(--text-primary);
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .ig-post-sub {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .ig-gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gradient-gold);
+      margin: 0 auto var(--space-md);
+    }
+
+    .ig-stat-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      background: rgba(232, 185, 48, 0.08);
+    }
+
+    .ig-stat-badge .isb-number {
+      color: var(--gold);
+      font-size: var(--font-size-lg);
+      font-weight: 200;
+    }
+
+    .ig-stat-badge .isb-label {
+      color: var(--text-muted);
+      font-size: 9px;
+      letter-spacing: 1px;
+      margin-left: 6px;
+    }
+
+    /* ===== IG POST 2: STATS POST ===== */
+    .ig-stats {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(232, 185, 48, 0.06) 0%, transparent 60%),
+        var(--gradient-dark);
+      position: relative;
+    }
+
+    .ig-stats::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      pointer-events: none;
+    }
+
+    .ig-big-number {
+      font-size: 56px;
+      font-weight: 200;
+      color: var(--gold);
+      letter-spacing: 4px;
+      line-height: 1;
+      margin-bottom: 6px;
+      text-shadow: 0 0 40px rgba(232, 185, 48, 0.2);
+    }
+
+    .ig-big-label {
+      font-size: var(--font-size-base);
+      color: var(--text-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: var(--space-md);
+    }
+
+    .ig-stats-row {
+      display: flex;
+      gap: var(--space-lg);
+      margin-top: var(--space-md);
+    }
+
+    .ig-stats-item {
+      text-align: center;
+    }
+
+    .ig-stats-item .isi-value {
+      font-size: var(--font-size-lg);
+      color: var(--gold);
+      font-weight: 200;
+    }
+
+    .ig-stats-item .isi-label {
+      font-size: 8px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* ===== IG POST 3: TESTIMONIAL ===== */
+    .ig-testimonial {
+      background:
+        radial-gradient(circle at 50% 30%, rgba(22, 33, 62, 0.5) 0%, transparent 60%),
+        var(--gradient-hero);
+      position: relative;
+    }
+
+    .ig-quote-mark {
+      font-size: 60px;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 0.5;
+      margin-bottom: var(--space-sm);
+      font-family: Georgia, serif;
+    }
+
+    .ig-quote-text {
+      font-size: var(--font-size-base);
+      color: var(--text-primary);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .ig-quote-attr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ig-quote-attr .iqa-name {
+      font-size: var(--font-size-sm);
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .ig-quote-attr .iqa-title {
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== MOCK PLATFORM HEADER ===== */
+    .mock-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mock-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mock-avatar span {
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: 0.5px;
+    }
+
+    .mock-user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mock-username {
+      font-size: 11px;
+      color: var(--text-primary);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .mock-handle {
+      font-size: 9px;
+      color: var(--text-dim);
+    }
+
+    .mock-actions {
+      margin-left: auto;
+      font-size: 14px;
+      color: var(--text-dim);
+      letter-spacing: 3px;
+    }
+
+    /* ===== MOCK CAPTION AREA ===== */
+    .mock-caption {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .mock-caption-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .mock-caption-likes {
+      font-size: 10px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .mock-caption-text {
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .mock-caption-text strong {
+      color: var(--text-secondary);
+    }
+
+    /* ===== POSTER MINI LOGO ===== */
+    .social-mini-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .social-mini-logo .sml-diamond {
+      width: 18px;
+      height: 18px;
+      background: var(--gradient-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .social-mini-logo .sml-diamond span {
+      transform: rotate(-45deg);
+      font-size: 7px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .social-mini-logo .sml-name {
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===== LINKEDIN BANNER ===== */
+    .linkedin-banner-body {
+      aspect-ratio: 16 / 5;
+      background:
+        linear-gradient(135deg, rgba(13, 13, 26, 0.95) 0%, rgba(26, 26, 46, 0.9) 40%, rgba(22, 33, 62, 0.95) 100%),
+        repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(232, 185, 48, 0.02) 60px, rgba(232, 185, 48, 0.02) 61px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-xl) var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .linkedin-banner-body::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+      background: linear-gradient(90deg, transparent 0%, rgba(232, 185, 48, 0.03) 100%);
+      pointer-events: none;
+    }
+
+    .linkedin-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .linkedin-logo-big {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(232, 185, 48, 0.15);
+    }
+
+    .linkedin-logo-big span {
+      transform: rotate(-45deg);
+      color: var(--charcoal);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .linkedin-text h3 {
+      font-size: var(--font-size-lg);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 200;
+      margin-bottom: 4px;
+    }
+
+    .linkedin-text .lt-tagline {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .linkedin-right {
+      display: flex;
+      gap: var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .linkedin-service-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      background: rgba(232, 185, 48, 0.04);
+    }
+
+    .linkedin-service-item .lsi-icon {
+      font-size: 14px;
+    }
+
+    .linkedin-service-item .lsi-text {
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ===== FACEBOOK COVER ===== */
+    .fb-cover-body {
+      aspect-ratio: 16 / 5;
+      background:
+        radial-gradient(ellipse 80% 120% at 80% 50%, rgba(232, 185, 48, 0.05) 0%, transparent 70%),
+        var(--gradient-hero);
+      display: flex;
+      align-items: center;
+      padding: var(--space-xl) var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fb-cover-body::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--gradient-gold);
+    }
+
+    .fb-cover-body::after {
+      content: '';
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(232, 185, 48, 0.06);
+      pointer-events: none;
+    }
+
+    .fb-cover-left {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fb-cover-left h3 {
+      font-size: var(--font-size-xl);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 200;
+      margin-bottom: 4px;
+    }
+
+    .fb-cover-left .fc-tagline {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+
+    .fb-cover-left .fc-desc {
+      font-size: var(--font-size-sm);
+      color: var(--text-dim);
+      max-width: 400px;
+      margin-bottom: var(--space-md);
+    }
+
+    .fb-contact-row {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .fb-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .fb-contact-item .fci-icon {
+      color: var(--gold);
+      font-size: 11px;
+    }
+
+    .fb-cover-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      position: relative;
+      z-index: 1;
+      margin-left: var(--space-xl);
+    }
+
+    .fb-logo-diamond {
+      width: 64px;
+      height: 64px;
+      background: var(--gradient-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(232, 185, 48, 0.15);
+    }
+
+    .fb-logo-diamond span {
+      transform: rotate(-45deg);
+      color: var(--charcoal);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .fb-cover-right .fcr-web {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .linkedin-banner-body,
+      .fb-cover-body {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-md);
+        padding: var(--space-lg);
+        aspect-ratio: auto;
+        min-height: 200px;
+      }
+
+      .linkedin-left,
+      .fb-cover-left {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .linkedin-right {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .fb-cover-right {
+        margin-left: 0;
+      }
+
+      .fb-contact-row {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .ig-big-number {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="social-page">
+    <div class="container">
+
+      <!-- Page Intro -->
+      <div class="page-intro animate-in">
+        <span class="label">Marketing Materials</span>
+        <h1>Social Media <span class="text-gold">Templates</span></h1>
+        <div class="divider-gold-center"></div>
+        <p>Ready-to-use social media designs for Instagram, LinkedIn, and Facebook. Each template maintains Sachsen Spedition's premium brand identity.</p>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- INSTAGRAM POSTS                              -->
+      <!-- ============================================ -->
+      <div class="section-label animate-in">
+        <span class="sl-platform">Instagram</span>
+        <h2>Instagram Posts</h2>
+      </div>
+
+      <div class="social-grid animate-in">
+
+        <!-- IG Post 1: Service Highlight -->
+        <div class="social-preview">
+          <div class="mock-header">
+            <div class="mock-avatar"><span>SS</span></div>
+            <div class="mock-user-info">
+              <span class="mock-username">sachsenspedition</span>
+              <span class="mock-handle">Dar es Salaam, Tanzania</span>
+            </div>
+            <span class="mock-actions">&middot;&middot;&middot;</span>
+          </div>
+          <div class="social-preview-body square ig-service">
+            <div class="social-mini-logo">
+              <div class="sml-diamond"><span>SS</span></div>
+              <span class="sml-name">Sachsen Spedition</span>
+            </div>
+            <div class="ig-post-icon">&#128674;</div>
+            <div class="ig-post-headline">Sea Freight</div>
+            <div class="ig-gold-line"></div>
+            <div class="ig-post-sub">Global shipping from Dar es Salaam</div>
+            <div class="ig-stat-badge">
+              <span class="isb-number">50+</span>
+              <span class="isb-label">Ports Worldwide</span>
+            </div>
+          </div>
+          <div class="mock-caption">
+            <div class="mock-caption-actions">
+              <span>&#9825;</span>
+              <span>&#128172;</span>
+              <span>&#9993;</span>
+            </div>
+            <div class="mock-caption-likes">247 likes</div>
+            <div class="mock-caption-text">
+              <strong>sachsenspedition</strong> Your cargo, our expertise. FCL &amp; LCL sea freight solutions connecting Tanzania to the world. #SeaFreight #Logistics #DarEsSalaam
+            </div>
+          </div>
+        </div>
+
+        <!-- IG Post 2: Stats Post -->
+        <div class="social-preview">
+          <div class="mock-header">
+            <div class="mock-avatar"><span>SS</span></div>
+            <div class="mock-user-info">
+              <span class="mock-username">sachsenspedition</span>
+              <span class="mock-handle">Dar es Salaam, Tanzania</span>
+            </div>
+            <span class="mock-actions">&middot;&middot;&middot;</span>
+          </div>
+          <div class="social-preview-body square ig-stats">
+            <div class="social-mini-logo">
+              <div class="sml-diamond"><span>SS</span></div>
+              <span class="sml-name">Sachsen Spedition</span>
+            </div>
+            <div class="ig-big-number">3,000+</div>
+            <div class="ig-big-label">Shipments Cleared</div>
+            <div class="ig-gold-line"></div>
+            <div class="ig-stats-row">
+              <div class="ig-stats-item">
+                <div class="isi-value">15+</div>
+                <div class="isi-label">Years</div>
+              </div>
+              <div class="ig-stats-item">
+                <div class="isi-value">98%</div>
+                <div class="isi-label">On-Time</div>
+              </div>
+              <div class="ig-stats-item">
+                <div class="isi-value">7</div>
+                <div class="isi-label">Countries</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">
+            <div class="mock-caption-actions">
+              <span>&#9825;</span>
+              <span>&#128172;</span>
+              <span>&#9993;</span>
+            </div>
+            <div class="mock-caption-likes">312 likes</div>
+            <div class="mock-caption-text">
+              <strong>sachsenspedition</strong> Numbers that speak for themselves. Over 3,000 shipments cleared with a 98% on-time delivery rate. Trust the experts. #ClearingAndForwarding #Tanzania
+            </div>
+          </div>
+        </div>
+
+        <!-- IG Post 3: Testimonial -->
+        <div class="social-preview">
+          <div class="mock-header">
+            <div class="mock-avatar"><span>SS</span></div>
+            <div class="mock-user-info">
+              <span class="mock-username">sachsenspedition</span>
+              <span class="mock-handle">Dar es Salaam, Tanzania</span>
+            </div>
+            <span class="mock-actions">&middot;&middot;&middot;</span>
+          </div>
+          <div class="social-preview-body square ig-testimonial">
+            <div class="social-mini-logo">
+              <div class="sml-diamond"><span>SS</span></div>
+              <span class="sml-name">Sachsen Spedition</span>
+            </div>
+            <div class="ig-quote-mark">&ldquo;</div>
+            <div class="ig-quote-text">
+              Sachsen Spedition has transformed our supply chain. Their customs expertise and reliability are unmatched in East Africa.
+            </div>
+            <div class="ig-gold-line"></div>
+            <div class="ig-quote-attr">
+              <span class="iqa-name">James Mwangi</span>
+              <span class="iqa-title">Operations Director, KiliTrade Ltd.</span>
+            </div>
+          </div>
+          <div class="mock-caption">
+            <div class="mock-caption-actions">
+              <span>&#9825;</span>
+              <span>&#128172;</span>
+              <span>&#9993;</span>
+            </div>
+            <div class="mock-caption-likes">189 likes</div>
+            <div class="mock-caption-text">
+              <strong>sachsenspedition</strong> We let our results speak. Thank you to all our valued clients for their trust. #ClientTestimonial #Logistics #EastAfrica
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .social-grid -->
+
+      <hr class="section-divider">
+
+      <!-- ============================================ -->
+      <!-- LINKEDIN BANNER                              -->
+      <!-- ============================================ -->
+      <div class="section-label animate-in">
+        <span class="sl-platform">LinkedIn</span>
+        <h2>LinkedIn Banner</h2>
+      </div>
+
+      <div class="banner-preview animate-in">
+        <div class="banner-preview-header">
+          LINKEDIN COVER &mdash; 1584 &times; 396px &mdash; 16:5 ratio
+        </div>
+        <div class="linkedin-banner-body">
+          <div class="linkedin-left">
+            <div class="linkedin-logo-big">
+              <span>SS</span>
+            </div>
+            <div class="linkedin-text">
+              <h3>Sachsen Spedition</h3>
+              <span class="lt-tagline">Clearing &amp; Forwarding Specialists</span>
+            </div>
+          </div>
+          <div class="linkedin-right">
+            <div class="linkedin-service-item">
+              <span class="lsi-icon">&#128674;</span>
+              <span class="lsi-text">Sea Freight</span>
+            </div>
+            <div class="linkedin-service-item">
+              <span class="lsi-icon">&#9992;&#65039;</span>
+              <span class="lsi-text">Air Freight</span>
+            </div>
+            <div class="linkedin-service-item">
+              <span class="lsi-icon">&#128666;</span>
+              <span class="lsi-text">Road Transport</span>
+            </div>
+            <div class="linkedin-service-item">
+              <span class="lsi-icon">&#128203;</span>
+              <span class="lsi-text">Customs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ============================================ -->
+      <!-- FACEBOOK COVER                               -->
+      <!-- ============================================ -->
+      <div class="section-label animate-in">
+        <span class="sl-platform">Facebook</span>
+        <h2>Facebook Cover</h2>
+      </div>
+
+      <div class="banner-preview animate-in">
+        <div class="banner-preview-header">
+          FACEBOOK COVER &mdash; 820 &times; 312px &mdash; Landscape
+        </div>
+        <div class="fb-cover-body">
+          <div class="fb-cover-left">
+            <h3>Sachsen Spedition</h3>
+            <div class="fc-tagline">Clearing &amp; Forwarding Specialists &mdash; Dar es Salaam</div>
+            <div class="fc-desc">Trusted logistics partner for sea freight, air cargo, road transport, and customs clearing across East Africa.</div>
+            <div class="fb-contact-row">
+              <div class="fb-contact-item">
+                <span class="fci-icon">&#9742;</span>
+                <span>+255 22 213 8051</span>
+              </div>
+              <div class="fb-contact-item">
+                <span class="fci-icon">&#9993;</span>
+                <span>info@sachsen.co.tz</span>
+              </div>
+              <div class="fb-contact-item">
+                <span class="fci-icon">&#127760;</span>
+                <span>www.sachsen.co.tz</span>
+              </div>
+            </div>
+          </div>
+          <div class="fb-cover-right">
+            <div class="fb-logo-diamond">
+              <span>SS</span>
+            </div>
+            <span class="fcr-web">sachsen.co.tz</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .container -->
+  </div><!-- .social-page -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

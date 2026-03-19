@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Sachsen Client Portal</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <style>
+    .portal-welcome {
+      color: var(--text-dim);
+      font-size: var(--font-size-sm);
+      margin-top: 2px;
+    }
+
+    .portal-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .notification-btn {
+      position: relative;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+
+    .notification-btn:hover {
+      border-color: var(--border-gold);
+      color: var(--gold);
+    }
+
+    .notification-btn .notif-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--danger);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .stat-card .stat-change {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .stat-card .stat-change.up { color: var(--success); }
+    .stat-card .stat-change.down { color: var(--danger); }
+
+    .stat-card .stat-value.danger { color: var(--danger); }
+
+    /* Shipment table grid */
+    .table-head.shipment-cols,
+    .table-row.shipment-cols {
+      grid-template-columns: 130px 1.5fr 90px 110px 90px;
+    }
+
+    .table-row .tracking-link {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .view-all-link {
+      color: var(--gold);
+      font-size: var(--font-size-sm);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .view-all-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Activity Log */
+    .activity-log {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-lg);
+    }
+
+    .activity-log-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .activity-log-header h4 {
+      font-size: var(--font-size-base);
+      letter-spacing: 1px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: var(--font-size-sm);
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .activity-dot.gold { background: var(--gold); }
+    .activity-dot.green { background: var(--success); }
+    .activity-dot.blue { background: var(--info); }
+    .activity-dot.red { background: var(--danger); }
+
+    .activity-text {
+      flex: 1;
+      color: var(--text-secondary);
+    }
+
+    .activity-text strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .activity-time {
+      color: var(--text-dim);
+      font-size: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1024px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .table-head.shipment-cols,
+      .table-row.shipment-cols {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="portal-layout">
+
+    <!-- Sidebar -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-diamond"><span>SS</span></div>
+        <span class="logo-name">SACHSEN</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link active">
+          <span class="icon">&#9633;</span> Dashboard
+        </a>
+        <a href="shipments.html" class="sidebar-link">
+          <span class="icon">&#128674;</span> Shipments
+        </a>
+        <a href="quotes.html" class="sidebar-link">
+          <span class="icon">&#128203;</span> Quotes
+        </a>
+        <a href="documents.html" class="sidebar-link">
+          <span class="icon">&#128193;</span> Documents
+        </a>
+        <a href="invoices.html" class="sidebar-link">
+          <span class="icon">&#128176;</span> Invoices
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="icon">&#128172;</span> Messages
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-label">LOGGED IN AS</div>
+        <div class="user-name">Acme Trading Co.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+
+      <!-- Header -->
+      <div class="portal-header">
+        <div>
+          <h2>Dashboard</h2>
+          <p class="portal-welcome">Welcome back, Acme Trading Co.</p>
+        </div>
+        <div class="portal-actions">
+          <a href="quotes.html" class="btn btn-gold btn-sm">+ NEW QUOTE</a>
+          <button class="notification-btn">
+            &#128276;
+            <span class="notif-count">3</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card gold">
+          <div class="stat-label">Active Shipments</div>
+          <div class="stat-value">7</div>
+          <div class="stat-change up">&#9650; 2 this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending Quotes</div>
+          <div class="stat-value">3</div>
+          <div class="stat-change">Awaiting review</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Documents</div>
+          <div class="stat-value">24</div>
+          <div class="stat-change">4 new this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Unpaid Invoices</div>
+          <div class="stat-value danger">2</div>
+          <div class="stat-change down">$12,400 outstanding</div>
+        </div>
+      </div>
+
+      <!-- Active Shipments Table -->
+      <div class="data-table">
+        <div class="data-table-header">
+          <h4>Active Shipments</h4>
+          <a href="shipments.html" class="view-all-link">VIEW ALL &rarr;</a>
+        </div>
+        <div class="table-head shipment-cols">
+          <span>TRACKING #</span>
+          <span>ROUTE</span>
+          <span>TYPE</span>
+          <span>STATUS</span>
+          <span>ETA</span>
+        </div>
+        <a href="shipment-detail.html" class="table-row shipment-cols" style="text-decoration: none;">
+          <span class="tracking-link">SS-2026-0847</span>
+          <span>Shanghai &rarr; DSM</span>
+          <span>&#128674; Sea</span>
+          <span><span class="badge badge-success">In Transit</span></span>
+          <span>Mar 25</span>
+        </a>
+        <div class="table-row shipment-cols">
+          <span class="tracking-link">SS-2026-0852</span>
+          <span>Dubai &rarr; DSM</span>
+          <span>&#9992;&#65039; Air</span>
+          <span><span class="badge badge-warning">Customs</span></span>
+          <span>Mar 20</span>
+        </div>
+        <div class="table-row shipment-cols">
+          <span class="tracking-link">SS-2026-0861</span>
+          <span>DSM &rarr; Kigali</span>
+          <span>&#128667; Road</span>
+          <span><span class="badge badge-info">Loading</span></span>
+          <span>Mar 22</span>
+        </div>
+        <div class="table-row shipment-cols">
+          <span class="tracking-link">SS-2026-0839</span>
+          <span>Mumbai &rarr; DSM</span>
+          <span>&#128674; Sea</span>
+          <span><span class="badge badge-success">Delivered</span></span>
+          <span>Mar 18</span>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="activity-log">
+        <div class="activity-log-header">
+          <h4>Recent Activity</h4>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot gold"></div>
+          <div class="activity-text">Customs cleared for <strong>SS-2026-0852</strong> &mdash; shipment released by TRA</div>
+          <div class="activity-time">2 hours ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot blue"></div>
+          <div class="activity-text">New invoice <strong>#INV-2026-0091</strong> generated for SS-2026-0839</div>
+          <div class="activity-time">5 hours ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot green"></div>
+          <div class="activity-text">Shipment <strong>SS-2026-0839</strong> delivered to Acme warehouse, DSM</div>
+          <div class="activity-time">Yesterday, 4:30 PM</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot gold"></div>
+          <div class="activity-text">Quote <strong>#QR-2026-0034</strong> approved &mdash; booking confirmed for Nairobi route</div>
+          <div class="activity-time">Yesterday, 11:15 AM</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot red"></div>
+          <div class="activity-text">Payment reminder sent for invoice <strong>#INV-2026-0084</strong> &mdash; 7 days overdue</div>
+          <div class="activity-time">2 days ago</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

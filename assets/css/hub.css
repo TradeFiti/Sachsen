@@ -1,0 +1,145 @@
+/* Sachsen Spedition — Hub Page Styles */
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.hub-badge {
+  color: var(--gold);
+  font-size: var(--font-size-sm);
+  letter-spacing: 2px;
+}
+
+.hub-hero {
+  padding: 60px 40px;
+  text-align: center;
+  background: var(--gradient-dark);
+}
+
+.hub-hero .prepared-for {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 5px;
+  margin-bottom: 15px;
+}
+
+.hub-hero h1 {
+  font-size: 32px;
+  font-weight: 200;
+  letter-spacing: 5px;
+  margin-bottom: 8px;
+}
+
+.hub-hero .hub-desc {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.hub-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 40px 40px;
+  margin-top: -10px;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  text-align: center;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.pillar-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold-strong);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-gold);
+}
+
+.pillar-card .pillar-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.pillar-card .pillar-number {
+  color: var(--gold);
+  font-size: var(--font-size-sm);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.pillar-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.pillar-card p {
+  color: var(--text-dim);
+  font-size: var(--font-size-sm);
+  margin-bottom: 15px;
+}
+
+.pillar-links {
+  list-style: none;
+  text-align: left;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pillar-links li {
+  padding: 6px 0;
+}
+
+.pillar-links a {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pillar-links a:hover {
+  color: var(--gold);
+}
+
+.pillar-links a::before {
+  content: '→';
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.pillar-card-wide {
+  grid-column: span 3;
+  background: var(--bg-gold-subtle);
+  border-color: var(--border-gold-strong);
+}
+
+.pillar-card-wide .pillar-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px 20px;
+}
+
+@media (max-width: 768px) {
+  .hub-pillars { grid-template-columns: 1fr; padding: 0 20px 20px; }
+  .hub-header { padding: 15px 20px; }
+  .hub-hero { padding: 40px 20px; }
+  .hub-hero h1 { font-size: 24px; letter-spacing: 3px; }
+  .pillar-card-wide { grid-column: span 1; }
+  .pillar-card-wide .pillar-links { grid-template-columns: 1fr 1fr; }
+}

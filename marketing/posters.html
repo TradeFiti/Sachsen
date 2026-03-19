@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Promotional Posters — Sachsen Spedition (T) Limited</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/marketing.css">
+  <style>
+    /* ===== POSTER PAGE SPECIFIC ===== */
+    .posters-page {
+      padding: 80px 0 60px;
+    }
+
+    .page-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .page-intro h1 {
+      margin-bottom: var(--space-md);
+    }
+
+    .page-intro p {
+      color: var(--text-muted);
+      font-size: var(--font-size-base);
+    }
+
+    .poster-label {
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .poster-label span {
+      display: inline-block;
+      background: var(--bg-gold-subtle);
+      border: 1px solid var(--border-gold);
+      color: var(--gold);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ===== POSTER 1: SEA FREIGHT — WAVE PATTERN ===== */
+    .poster-sea {
+      background:
+        radial-gradient(ellipse 120% 60% at 50% 120%, rgba(22, 33, 62, 0.7) 0%, transparent 70%),
+        var(--gradient-hero);
+      position: relative;
+    }
+
+    .poster-sea::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(232,185,48,0.04)' d='M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E") repeat-x bottom,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(232,185,48,0.02)' d='M0,80 C360,20 720,100 1080,40 C1260,10 1380,60 1440,80 L1440,120 L0,120 Z'/%3E%3C/svg%3E") repeat-x bottom;
+    }
+
+    .poster-sea::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 15% 30%, rgba(232, 185, 48, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(22, 33, 62, 0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .poster-sea .poster-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .poster-icon-large {
+      font-size: 64px;
+      margin-bottom: var(--space-md);
+      filter: drop-shadow(0 4px 20px rgba(232, 185, 48, 0.2));
+    }
+
+    .poster h2 {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E8B930 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    .feature-circles {
+      display: flex;
+      gap: 40px;
+      margin: var(--space-lg) 0;
+      justify-content: center;
+    }
+
+    .feature-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold-strong);
+      background: rgba(232, 185, 48, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all var(--transition-base);
+    }
+
+    .feature-circle:hover {
+      background: rgba(232, 185, 48, 0.12);
+      border-color: var(--gold);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(232, 185, 48, 0.15);
+    }
+
+    .feature-circle .fc-icon {
+      font-size: 22px;
+    }
+
+    .feature-circle .fc-label {
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .poster-contact-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border-gold);
+      padding: 12px var(--space-xl);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      z-index: 3;
+    }
+
+    .poster-contact-bar .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .poster-contact-bar .contact-item .ci-icon {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    /* ===== POSTER 2: AIR FREIGHT — DIAGONAL STRIPE ===== */
+    .poster-air {
+      background: var(--gradient-hero);
+      overflow: hidden;
+    }
+
+    .poster-air::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 200px;
+      height: 250%;
+      background: linear-gradient(135deg, transparent 0%, rgba(232, 185, 48, 0.08) 40%, rgba(232, 185, 48, 0.15) 50%, rgba(232, 185, 48, 0.08) 60%, transparent 100%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .poster-air::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: 5%;
+      width: 80px;
+      height: 250%;
+      background: linear-gradient(135deg, transparent 0%, rgba(232, 185, 48, 0.03) 40%, rgba(232, 185, 48, 0.06) 50%, rgba(232, 185, 48, 0.03) 60%, transparent 100%);
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .poster-air .poster-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .air-features {
+      display: flex;
+      gap: 50px;
+      margin: var(--space-lg) 0;
+      justify-content: center;
+    }
+
+    .air-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 20px;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      background: rgba(232, 185, 48, 0.04);
+      min-width: 120px;
+      transition: all var(--transition-base);
+    }
+
+    .air-feature:hover {
+      background: rgba(232, 185, 48, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .air-feature .af-icon {
+      font-size: 24px;
+    }
+
+    .air-feature .af-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ===== POSTER 3: ROAD TRANSPORT ===== */
+    .poster-road {
+      background:
+        radial-gradient(ellipse 100% 80% at 50% 0%, rgba(22, 33, 62, 0.5) 0%, transparent 70%),
+        var(--gradient-dark);
+      overflow: hidden;
+    }
+
+    .poster-road::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 40px,
+          rgba(232, 185, 48, 0.015) 40px,
+          rgba(232, 185, 48, 0.015) 41px
+        );
+      pointer-events: none;
+    }
+
+    .poster-road .poster-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .route-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: var(--space-lg) 0;
+      max-width: 600px;
+    }
+
+    .route-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: rgba(232, 185, 48, 0.06);
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      transition: all var(--transition-base);
+    }
+
+    .route-tag:hover {
+      background: rgba(232, 185, 48, 0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .route-tag .rt-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .route-connector {
+      color: var(--gold);
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ===== GOLD SHIMMER LINE ===== */
+    .gold-line {
+      width: 80px;
+      height: 2px;
+      background: var(--gradient-gold);
+      margin: var(--space-sm) auto var(--space-md);
+      border-radius: 1px;
+    }
+
+    .gold-line-wide {
+      width: 120px;
+    }
+
+    /* ===== POSTER LOGO INLINE ===== */
+    .poster-logo-inline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .poster-logo-inline .pli-diamond {
+      width: 28px;
+      height: 28px;
+      background: var(--gradient-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .poster-logo-inline .pli-diamond span {
+      transform: rotate(-45deg);
+      color: var(--charcoal);
+      font-weight: 800;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .poster-logo-inline .pli-text {
+      color: var(--text-primary);
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .poster h2 {
+        font-size: var(--font-size-lg);
+        letter-spacing: 3px;
+      }
+
+      .poster-icon-large {
+        font-size: 42px;
+      }
+
+      .feature-circles {
+        gap: 20px;
+      }
+
+      .feature-circle {
+        width: 70px;
+        height: 70px;
+      }
+
+      .air-features {
+        gap: 15px;
+      }
+
+      .air-feature {
+        min-width: 90px;
+        padding: 10px 14px;
+      }
+
+      .route-list {
+        gap: 6px;
+      }
+
+      .route-tag {
+        padding: 6px 12px;
+        font-size: 9px;
+      }
+
+      .poster-contact-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px var(--space-md);
+      }
+
+      .poster-contact-bar .contact-item {
+        font-size: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-to-hub">&larr; Hub</a>
+
+  <div class="posters-page">
+    <div class="container">
+
+      <!-- Page Intro -->
+      <div class="page-intro animate-in">
+        <span class="label">Marketing Materials</span>
+        <h1>Service <span class="text-gold">Posters</span></h1>
+        <div class="divider-gold-center"></div>
+        <p>Premium promotional poster designs for Sachsen Spedition's core logistics services. Each poster is crafted to convey authority, reliability, and global reach.</p>
+      </div>
+
+      <!-- ===== POSTER 1: SEA FREIGHT ===== -->
+      <div class="poster-label animate-in">
+        <span>Poster 1 &mdash; Sea Freight</span>
+      </div>
+
+      <div class="poster poster-sea animate-in">
+        <div class="poster-content">
+          <div class="poster-logo-inline">
+            <div class="pli-diamond"><span>SS</span></div>
+            <span class="pli-text">Sachsen Spedition</span>
+          </div>
+
+          <div class="poster-icon-large">&#9875;</div>
+
+          <h2>Global Reach. Local Expertise.</h2>
+          <div class="gold-line gold-line-wide"></div>
+          <p class="poster-subtitle">Sea Freight Solutions from Dar es Salaam to the World</p>
+
+          <div class="feature-circles">
+            <div class="feature-circle">
+              <span class="fc-icon">&#128230;</span>
+              <span class="fc-label">FCL</span>
+            </div>
+            <div class="feature-circle">
+              <span class="fc-icon">&#128229;</span>
+              <span class="fc-label">LCL</span>
+            </div>
+            <div class="feature-circle">
+              <span class="fc-icon">&#128203;</span>
+              <span class="fc-label">Customs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="poster-contact-bar">
+          <div class="contact-item">
+            <span class="ci-icon">&#9742;</span>
+            <span>+255 22 213 8051</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#9993;</span>
+            <span>info@sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#127760;</span>
+            <span>www.sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#128205;</span>
+            <span>Samora/Zanaki St, Dar es Salaam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== POSTER 2: AIR FREIGHT ===== -->
+      <div class="poster-label animate-in">
+        <span>Poster 2 &mdash; Air Freight</span>
+      </div>
+
+      <div class="poster poster-air animate-in">
+        <div class="poster-content">
+          <div class="poster-logo-inline">
+            <div class="pli-diamond"><span>SS</span></div>
+            <span class="pli-text">Sachsen Spedition</span>
+          </div>
+
+          <div class="poster-icon-large">&#9992;&#65039;</div>
+
+          <h2>Speed Meets Reliability</h2>
+          <div class="gold-line gold-line-wide"></div>
+          <p class="poster-subtitle">Air Cargo Services Through Julius Nyerere International Airport</p>
+
+          <div class="air-features">
+            <div class="air-feature">
+              <span class="af-icon">&#9889;</span>
+              <span class="af-label">Express</span>
+            </div>
+            <div class="air-feature">
+              <span class="af-icon">&#128230;</span>
+              <span class="af-label">Standard</span>
+            </div>
+            <div class="air-feature">
+              <span class="af-icon">&#10052;&#65039;</span>
+              <span class="af-label">Perishable</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="poster-contact-bar">
+          <div class="contact-item">
+            <span class="ci-icon">&#9742;</span>
+            <span>+255 22 213 8051</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#9993;</span>
+            <span>info@sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#127760;</span>
+            <span>www.sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#128205;</span>
+            <span>Samora/Zanaki St, Dar es Salaam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== POSTER 3: ROAD TRANSPORT ===== -->
+      <div class="poster-label animate-in">
+        <span>Poster 3 &mdash; Road Transport</span>
+      </div>
+
+      <div class="poster poster-road animate-in">
+        <div class="poster-content">
+          <div class="poster-logo-inline">
+            <div class="pli-diamond"><span>SS</span></div>
+            <span class="pli-text">Sachsen Spedition</span>
+          </div>
+
+          <div class="poster-icon-large">&#128666;</div>
+
+          <h2>Connecting East Africa</h2>
+          <div class="gold-line gold-line-wide"></div>
+          <p class="poster-subtitle">Cross-Border Trucking Across 7 Countries</p>
+
+          <div class="route-list">
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Tanzania
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Kenya
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Uganda
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Rwanda
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              DRC
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Burundi
+            </div>
+            <div class="route-tag">
+              <span class="rt-dot"></span>
+              Malawi
+            </div>
+          </div>
+        </div>
+
+        <div class="poster-contact-bar">
+          <div class="contact-item">
+            <span class="ci-icon">&#9742;</span>
+            <span>+255 22 213 8051</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#9993;</span>
+            <span>info@sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#127760;</span>
+            <span>www.sachsen.co.tz</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">&#128205;</span>
+            <span>Samora/Zanaki St, Dar es Salaam</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .container -->
+  </div><!-- .posters-page -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
