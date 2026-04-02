@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotation | Sachsen Spedition</title>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    body { background: var(--charcoal); }
+
+    /* ===== HEADER ===== */
+    .quote-header {
+      background: rgba(10, 10, 20, 0.6);
+      backdrop-filter: blur(20px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-gold);
+    }
+    .quote-header .doc-type {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ===== HERO ===== */
+    .quote-hero {
+      background: var(--gradient-hero);
+      padding: 70px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232, 185, 48, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quote-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-gold-strong), transparent);
+    }
+    .quote-hero h1 {
+      font-size: 38px;
+      letter-spacing: 6px;
+      font-weight: 200;
+      margin-bottom: 12px;
+    }
+    .quote-hero .subtitle {
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* ===== META BAR ===== */
+    .meta-bar {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding: 25px 40px;
+      background: var(--bg-gold-subtle);
+      border-bottom: 1px solid var(--border-gold);
+    }
+    .meta-item {
+      text-align: center;
+    }
+    .meta-item .meta-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .meta-item .meta-value {
+      font-size: 14px;
+      color: var(--text-primary);
+      font-weight: 300;
+      margin-top: 4px;
+    }
+
+    /* ===== CLIENT INFO ===== */
+    .client-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 50px 40px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .client-block h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .client-block p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+    .client-block .company-name {
+      font-size: 16px;
+      color: var(--text-primary);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* ===== PILLAR SECTIONS ===== */
+    .pillars {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 50px 40px 30px;
+    }
+
+    .pillar {
+      margin-bottom: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-base);
+    }
+    .pillar:hover {
+      border-color: var(--border-gold);
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .pillar-header .pillar-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .pillar-number {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pillar-number span {
+      transform: rotate(-45deg);
+      color: var(--charcoal);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .pillar-header h3 {
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    .pillar-price {
+      text-align: right;
+    }
+    .pillar-price .amount {
+      font-size: 20px;
+      color: var(--gold);
+      font-weight: 300;
+    }
+    .pillar-price .currency {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+
+    .pillar-body {
+      padding: 0;
+    }
+
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 13px;
+      transition: background var(--transition-fast);
+    }
+    .line-item:last-child { border-bottom: none; }
+    .line-item:hover { background: var(--bg-card-hover); }
+    .line-item .item-name {
+      color: var(--text-secondary);
+    }
+    .line-item .item-price {
+      color: var(--text-muted);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+    }
+
+    .summary-card {
+      background: var(--bg-gold-subtle);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .summary-header {
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border-gold);
+    }
+    .summary-header h3 {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(232, 185, 48, 0.08);
+      font-size: 13px;
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row .row-label { color: var(--text-secondary); }
+    .summary-row .row-original {
+      color: var(--text-dim);
+      text-decoration: line-through;
+      font-size: 12px;
+      margin-right: 12px;
+    }
+    .summary-row .row-value { color: var(--text-primary); font-weight: 400; }
+    .summary-row .row-saving { color: var(--success); font-size: 11px; }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px;
+      background: rgba(232, 185, 48, 0.08);
+      border-top: 1px solid var(--border-gold-strong);
+    }
+    .summary-total .total-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .summary-total .total-amount {
+      font-size: 28px;
+      color: var(--gold);
+      font-weight: 200;
+    }
+    .summary-total .total-amount small {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      display: block;
+      text-align: right;
+      margin-top: 2px;
+    }
+
+    .discount-badge {
+      display: inline-block;
+      background: rgba(76, 175, 80, 0.12);
+      color: var(--success);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    /* ===== PAYMENT & TIMELINE ===== */
+    .details-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .detail-card-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .detail-card-header h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 24px;
+      font-size: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .detail-label { color: var(--text-muted); }
+    .detail-row .detail-value { color: var(--text-primary); font-weight: 400; }
+    .detail-row .detail-pct {
+      display: inline-block;
+      background: var(--bg-gold-subtle);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    /* ===== TIMELINE VISUAL ===== */
+    .timeline-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+    }
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 30px 28px;
+    }
+    .timeline-card h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .week-timeline {
+      display: grid;
+      grid-template-columns: 120px repeat(4, 1fr);
+      gap: 0;
+      margin-bottom: 5px;
+    }
+    .week-timeline.header {
+      margin-bottom: 15px;
+    }
+    .week-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 0;
+    }
+    .week-cell {
+      padding: 8px 4px;
+      text-align: center;
+    }
+    .week-cell.header-cell {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    .week-bar {
+      height: 28px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .week-bar.active {
+      background: rgba(232, 185, 48, 0.15);
+      border: 1px solid var(--border-gold-strong);
+      color: var(--gold);
+    }
+    .week-bar.empty {
+      background: transparent;
+    }
+
+    /* ===== INCLUSIONS ===== */
+    .inclusions {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .inclusion-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+    .inclusion-card h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .inclusion-card.exclusions h4 {
+      color: var(--text-dim);
+    }
+    .inclusion-list {
+      list-style: none;
+    }
+    .inclusion-list li {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .inclusion-list li .check {
+      color: var(--gold);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .inclusion-list li .cross {
+      color: var(--text-dim);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== TERMS ===== */
+    .terms-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+    }
+    .terms-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .terms-card h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .terms-card p {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    /* ===== ACCEPTANCE ===== */
+    .acceptance-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 50px;
+    }
+    .acceptance-card {
+      background: var(--bg-gold-subtle);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 40px 28px;
+      text-align: center;
+    }
+    .acceptance-card h3 {
+      font-size: 18px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+    .acceptance-card p {
+      color: var(--text-dim);
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .sig-block {
+      text-align: left;
+    }
+    .sig-block .sig-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+    .sig-line {
+      border-bottom: 1px solid var(--border-gold-strong);
+      margin-bottom: 8px;
+      height: 40px;
+    }
+    .sig-block .sig-name {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .sig-block .sig-date {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 3px;
+    }
+
+    /* ===== FOOTER ===== */
+    .quote-footer {
+      text-align: center;
+      padding: 30px 40px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .quote-footer p {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+    .quote-footer .powered {
+      color: var(--gold);
+      margin-top: 4px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #fff; color: #333; }
+      .quote-header, .quote-hero { background: #f8f8f8 !important; }
+      .pillar, .detail-card, .summary-card, .timeline-card, .inclusion-card, .terms-card, .acceptance-card {
+        break-inside: avoid;
+        border-color: #ddd !important;
+      }
+      .back-to-hub { display: none !important; }
+      * { color: #333 !important; }
+      .pillar-price .amount, .summary-total .total-amount, .total-label, .gold { color: #B8860B !important; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .client-section { grid-template-columns: 1fr; gap: 25px; }
+      .details-grid { grid-template-columns: 1fr; }
+      .inclusions { grid-template-columns: 1fr; }
+      .sig-grid { grid-template-columns: 1fr; gap: 30px; }
+      .meta-bar { flex-wrap: wrap; gap: 20px; }
+      .meta-item { flex: 1 1 40%; }
+      .pillar-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .pillar-price { text-align: left; }
+      .line-item { flex-direction: column; gap: 4px; align-items: flex-start; }
+      .week-timeline { grid-template-columns: 80px repeat(4, 1fr); }
+      .quote-hero h1 { font-size: 26px; letter-spacing: 3px; }
+      .summary-total .total-amount { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to hub -->
+  <a href="index.html" class="back-to-hub">&#9670; Hub</a>
+
+  <!-- Header -->
+  <header class="quote-header">
+    <a href="index.html" class="logo">
+      <div class="logo-diamond"><span>SS</span></div>
+      <div class="logo-text">
+        <span class="name">SACHSEN</span>
+        <span class="tagline">SPEDITION</span>
+      </div>
+    </a>
+    <span class="doc-type">Quotation</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="quote-hero">
+    <span class="label" style="display:block; margin-bottom: 15px;">Digital Services Proposal</span>
+    <h1>QUOTATION</h1>
+    <p class="subtitle">Complete digital transformation package — brand, web, marketing, portal & SEO</p>
+  </section>
+
+  <!-- Meta -->
+  <div class="meta-bar">
+    <div class="meta-item">
+      <div class="meta-label">Date</div>
+      <div class="meta-value">2nd April 2026</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Reference</div>
+      <div class="meta-value">TF-SS-2026-001</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Currency</div>
+      <div class="meta-value">KES</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Valid Until</div>
+      <div class="meta-value">2nd May 2026</div>
+    </div>
+  </div>
+
+  <!-- Client Info -->
+  <div class="client-section">
+    <div class="client-block">
+      <h4>Prepared For</h4>
+      <p class="company-name">Sachsen Spedition (T) Limited</p>
+      <p>Dar es Salaam, Tanzania<br>Clearing &amp; Forwarding</p>
+    </div>
+    <div class="client-block">
+      <h4>Prepared By</h4>
+      <p class="company-name">Tradefiti</p>
+      <p>Digital Strategy &amp; Development<br>Nairobi, Kenya</p>
+    </div>
+  </div>
+
+  <!-- Pillars -->
+  <div class="pillars">
+
+    <!-- Pillar 1: Brand -->
+    <div class="pillar">
+      <div class="pillar-header">
+        <div class="pillar-title">
+          <div class="pillar-number"><span>1</span></div>
+          <h3>BRAND IDENTITY &amp; GUIDELINES</h3>
+        </div>
+        <div class="pillar-price">
+          <div class="amount">35,000</div>
+          <div class="currency">KES</div>
+        </div>
+      </div>
+      <div class="pillar-body">
+        <div class="line-item">
+          <span class="item-name">Logo design — primary, diamond mark, mono, dark/light variants</span>
+          <span class="item-price">15,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Brand guidelines — colors, typography, usage rules, voice</span>
+          <span class="item-price">12,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Design system tokens &amp; asset exports (SVG, PNG, PDF)</span>
+          <span class="item-price">8,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 2: Website -->
+    <div class="pillar">
+      <div class="pillar-header">
+        <div class="pillar-title">
+          <div class="pillar-number"><span>2</span></div>
+          <h3>WEBSITE DESIGN &amp; DEVELOPMENT</h3>
+        </div>
+        <div class="pillar-price">
+          <div class="amount">55,000</div>
+          <div class="currency">KES</div>
+        </div>
+      </div>
+      <div class="pillar-body">
+        <div class="line-item">
+          <span class="item-name">Homepage — hero, services, stats, trust signals, CTAs</span>
+          <span class="item-price">10,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">About Us page</span>
+          <span class="item-price">5,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Services overview page</span>
+          <span class="item-price">5,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Service detail pages x4 (Sea, Air, Road, Customs)</span>
+          <span class="item-price">16,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Contact page — form &amp; map integration</span>
+          <span class="item-price">5,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Request a Quote page — multi-step form</span>
+          <span class="item-price">6,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Responsive design — all breakpoints</span>
+          <span class="item-price">5,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Deployment, hosting setup &amp; domain configuration</span>
+          <span class="item-price">3,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 3: Marketing -->
+    <div class="pillar">
+      <div class="pillar-header">
+        <div class="pillar-title">
+          <div class="pillar-number"><span>3</span></div>
+          <h3>MARKETING STUDIO &amp; CONTENT</h3>
+        </div>
+        <div class="pillar-price">
+          <div class="amount">30,000</div>
+          <div class="currency">KES</div>
+        </div>
+      </div>
+      <div class="pillar-body">
+        <div class="line-item">
+          <span class="item-name">Service promotional posters x4 — print-ready A3/A4</span>
+          <span class="item-price">10,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Company profile — branded multi-page PDF (digital + print)</span>
+          <span class="item-price">8,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Social media templates — IG, FB, LinkedIn (reusable)</span>
+          <span class="item-price">7,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Initial content batch — first month (8–12 designed posts)</span>
+          <span class="item-price">5,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 4: Portal -->
+    <div class="pillar">
+      <div class="pillar-header">
+        <div class="pillar-title">
+          <div class="pillar-number"><span>4</span></div>
+          <h3>CLIENT &amp; ADMIN PORTAL</h3>
+        </div>
+        <div class="pillar-price">
+          <div class="amount">100,000</div>
+          <div class="currency">KES</div>
+        </div>
+      </div>
+      <div class="pillar-body">
+        <div class="line-item" style="padding: 10px 28px; background: rgba(232,185,48,0.03);">
+          <span class="item-name" style="color: var(--gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Client Portal</span>
+          <span></span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Dashboard — active shipments, quotes, notifications</span>
+          <span class="item-price">12,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Shipment tracking — list + detail with status timeline</span>
+          <span class="item-price">14,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Quote request system — submit &amp; track</span>
+          <span class="item-price">10,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Document vault — upload/download by shipment</span>
+          <span class="item-price">10,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Invoice management — view, payment status, history</span>
+          <span class="item-price">8,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Secure messaging — threaded conversations</span>
+          <span class="item-price">8,000</span>
+        </div>
+        <div class="line-item" style="padding: 10px 28px; background: rgba(232,185,48,0.03);">
+          <span class="item-name" style="color: var(--gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Admin Portal</span>
+          <span></span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Admin dashboard — metrics, pending actions, alerts</span>
+          <span class="item-price">10,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Shipment, client &amp; quote management</span>
+          <span class="item-price">12,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Invoice generation &amp; payment tracking</span>
+          <span class="item-price">8,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Authentication &amp; role-based access control</span>
+          <span class="item-price">8,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 5: SEO -->
+    <div class="pillar">
+      <div class="pillar-header">
+        <div class="pillar-title">
+          <div class="pillar-number"><span>5</span></div>
+          <h3>SEO SETUP &amp; OPTIMIZATION</h3>
+        </div>
+        <div class="pillar-price">
+          <div class="amount">25,000</div>
+          <div class="currency">KES</div>
+        </div>
+      </div>
+      <div class="pillar-body">
+        <div class="line-item">
+          <span class="item-name">Technical SEO audit &amp; fix — speed, schema, sitemap, robots.txt</span>
+          <span class="item-price">6,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">On-page SEO — meta tags, headings, alt tags, internal linking</span>
+          <span class="item-price">5,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Local SEO — Google Business Profile, Dar es Salaam citations</span>
+          <span class="item-price">4,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Keyword strategy — freight/logistics in Tanzania &amp; East Africa</span>
+          <span class="item-price">4,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Analytics setup — GA4 + Search Console</span>
+          <span class="item-price">3,000</span>
+        </div>
+        <div class="line-item">
+          <span class="item-name">Monthly SEO reports (3 months)</span>
+          <span class="item-price">3,000</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-section">
+    <div class="summary-card">
+      <div class="summary-header">
+        <h3>Investment Summary</h3>
+      </div>
+      <div class="summary-row">
+        <span class="row-label">1. Brand Identity &amp; Guidelines</span>
+        <span><span class="row-original">120,000</span><span class="row-value">35,000</span></span>
+      </div>
+      <div class="summary-row">
+        <span class="row-label">2. Website Design &amp; Development</span>
+        <span><span class="row-original">200,000</span><span class="row-value">55,000</span></span>
+      </div>
+      <div class="summary-row">
+        <span class="row-label">3. Marketing Studio &amp; Content</span>
+        <span><span class="row-original">120,000</span><span class="row-value">30,000</span></span>
+      </div>
+      <div class="summary-row">
+        <span class="row-label">4. Client &amp; Admin Portal</span>
+        <span><span class="row-original">500,000</span><span class="row-value">100,000</span></span>
+      </div>
+      <div class="summary-row">
+        <span class="row-label">5. SEO Setup &amp; Optimization</span>
+        <span><span class="row-original">80,000</span><span class="row-value">25,000</span></span>
+      </div>
+      <div class="summary-total">
+        <div>
+          <span class="total-label">Total Investment</span>
+          <div class="discount-badge">76% STARTUP DISCOUNT APPLIED</div>
+        </div>
+        <div class="total-amount">
+          KES 245,000
+          <small>Normal rate: KES 1,020,000</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment & Timeline -->
+  <div class="details-grid">
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <h4>Payment Schedule</h4>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label"><span class="detail-pct">40%</span>Upon signing / project kickoff</span>
+        <span class="detail-value">KES 98,000</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label"><span class="detail-pct">30%</span>Brand + Website + Marketing delivered</span>
+        <span class="detail-value">KES 73,500</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label"><span class="detail-pct">30%</span>Portal + SEO complete</span>
+        <span class="detail-value">KES 73,500</span>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <h4>Delivery Overview</h4>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Total duration</span>
+        <span class="detail-value">4 Weeks</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Feedback turnaround required</span>
+        <span class="detail-value">24 – 48 hours</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Post-launch support</span>
+        <span class="detail-value">30 days</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Visual -->
+  <div class="timeline-section">
+    <div class="timeline-card">
+      <h4>4-Week Delivery Timeline</h4>
+
+      <div class="week-timeline header">
+        <div class="week-label"></div>
+        <div class="week-cell header-cell">Week 1</div>
+        <div class="week-cell header-cell">Week 2</div>
+        <div class="week-cell header-cell">Week 3</div>
+        <div class="week-cell header-cell">Week 4</div>
+      </div>
+
+      <div class="week-timeline">
+        <div class="week-label">Brand</div>
+        <div class="week-cell"><div class="week-bar active">BUILD</div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+      </div>
+
+      <div class="week-timeline">
+        <div class="week-label">Website</div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar active">DESIGN</div></div>
+        <div class="week-cell"><div class="week-bar active">DEVELOP</div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+      </div>
+
+      <div class="week-timeline">
+        <div class="week-label">Marketing</div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar active">CREATE</div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+      </div>
+
+      <div class="week-timeline">
+        <div class="week-label">Portal</div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar active">BUILD</div></div>
+        <div class="week-cell"><div class="week-bar active">BUILD</div></div>
+        <div class="week-cell"><div class="week-bar active">LAUNCH</div></div>
+      </div>
+
+      <div class="week-timeline">
+        <div class="week-label">SEO</div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar empty"></div></div>
+        <div class="week-cell"><div class="week-bar active">SETUP</div></div>
+        <div class="week-cell"><div class="week-bar active">OPTIMIZE</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inclusions -->
+  <div class="inclusions">
+    <div class="inclusion-card">
+      <h4>What's Included</h4>
+      <ul class="inclusion-list">
+        <li><span class="check">&#9670;</span> Unlimited revisions during each phase (within scope)</li>
+        <li><span class="check">&#9670;</span> Source files for all designs</li>
+        <li><span class="check">&#9670;</span> 30 days post-launch support (bug fixes)</li>
+        <li><span class="check">&#9670;</span> Training session for portal usage</li>
+        <li><span class="check">&#9670;</span> Mobile-responsive across all deliverables</li>
+        <li><span class="check">&#9670;</span> Google Analytics &amp; Search Console setup</li>
+      </ul>
+    </div>
+    <div class="inclusion-card exclusions">
+      <h4>Not Included</h4>
+      <ul class="inclusion-list">
+        <li><span class="cross">&#9671;</span> Domain purchase &amp; annual hosting fees</li>
+        <li><span class="cross">&#9671;</span> Copywriting (client provides base content)</li>
+        <li><span class="cross">&#9671;</span> Photography / videography</li>
+        <li><span class="cross">&#9671;</span> Ongoing marketing management beyond initial batch</li>
+        <li><span class="cross">&#9671;</span> SEO beyond the 3-month monitoring period</li>
+        <li><span class="cross">&#9671;</span> Third-party API or payment gateway fees</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="terms-section">
+    <div class="terms-card">
+      <h4>Terms &amp; Conditions</h4>
+      <p>1. This quotation is valid for 30 days from the date of issue. Prices are fixed for the duration of the project once accepted.</p>
+      <p>2. Work commences upon receipt of the first milestone payment (40%). Deliverables are released upon receipt of the corresponding milestone payment.</p>
+      <p>3. Scope changes requested after project kickoff may affect timeline and pricing. Any additions will be quoted separately and require written approval.</p>
+      <p>4. The client retains full ownership of all deliverables upon final payment. Tradefiti retains the right to showcase the work in its portfolio unless otherwise agreed.</p>
+      <p>5. Post-launch support covers bug fixes and minor adjustments only. New features or major changes are quoted separately.</p>
+      <p>6. Client is responsible for providing all required content (text, images, company information) in a timely manner. Delays in content provision may extend the delivery timeline.</p>
+    </div>
+  </div>
+
+  <!-- Acceptance -->
+  <div class="acceptance-section">
+    <div class="acceptance-card">
+      <h3>ACCEPTANCE</h3>
+      <p>By signing below, both parties agree to the scope, pricing, and terms outlined in this quotation.</p>
+      <div class="sig-grid">
+        <div class="sig-block">
+          <div class="sig-label">For Sachsen Spedition</div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Authorized Signatory</div>
+          <div class="sig-date">Date: _______________</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-label">For Tradefiti</div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Authorized Signatory</div>
+          <div class="sig-date">Date: _______________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="quote-footer">
+    <p>Sachsen Spedition (T) Limited &mdash; Digital Services Quotation &bull; Ref: TF-SS-2026-001</p>
+    <p class="powered">Prepared by Tradefiti</p>
+  </footer>
+
+</body>
+</html>
